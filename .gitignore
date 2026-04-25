@@ -103,6 +103,7 @@ saju_dosa_mascot*.png
 .cursor/
 .gemini/
 .opencode/
+.playwright-mcp/
 
 # AI agent guides
 AGENTS.md
