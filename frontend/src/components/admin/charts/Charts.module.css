@@ -1,0 +1,190 @@
+/* Admin Charts Styles */
+
+.chartContainer {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--bg-tertiary);
+}
+
+.chartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.chartTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+.chartTitle svg {
+    color: var(--text-tertiary);
+}
+
+.chartSubtitle {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+}
+
+.chartWrapper {
+    width: 100%;
+    height: 300px;
+}
+
+.chartWrapperSmall {
+    width: 100%;
+    height: 240px;
+}
+
+/* Legend styles */
+.customLegend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+}
+
+.legendDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+/* Tooltip styles */
+.customTooltip {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tooltipLabel {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-1);
+}
+
+.tooltipValue {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+/* Pie chart specific */
+.pieCenter {
+    text-align: center;
+}
+
+.pieCenterValue {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+}
+
+.pieCenterLabel {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+}
+
+/* Loading state */
+.chartLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--text-tertiary);
+}
+
+/* Empty state */
+.chartEmpty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--text-tertiary);
+    gap: var(--space-2);
+}
+
+.chartEmpty svg {
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chartWrapper {
+        height: 250px;
+    }
+
+    .chartWrapperSmall {
+        height: 200px;
+    }
+
+    .chartContainer {
+        padding: var(--space-4);
+    }
+
+    .chartTitle {
+        font-size: var(--text-sm);
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .chartContainer {
+        background: var(--bg-card);
+        border-color: var(--bg-tertiary);
+    }
+    .chartTitle {
+        color: var(--text-primary);
+    }
+    .customTooltip {
+        background: var(--bg-card);
+        border-color: var(--bg-tertiary);
+    }
+    .tooltipValue {
+        color: var(--text-primary);
+    }
+    .pieCenterValue {
+        color: var(--text-primary);
+    }
+}
+
+[data-theme="dark"] .chartContainer {
+    background: var(--bg-card);
+    border-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .chartTitle {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .customTooltip {
+    background: var(--bg-card);
+    border-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .tooltipValue {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .pieCenterValue {
+    color: var(--text-primary);
+}

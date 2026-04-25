@@ -1,0 +1,100 @@
+/* FinalCtaSection - Final call to action (NO glass) */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-10) var(--space-5);
+  padding-top: calc(var(--space-10) + var(--space-16));
+}
+
+/* Headline */
+.headline {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4);
+  white-space: pre-line;
+}
+
+/* Body text */
+.body {
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-8);
+  max-width: 320px;
+}
+
+/* CTA Button - gradient style */
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  min-height: 52px;
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-500) 100%);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: white;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out), 
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+/* Reassurance text */
+.reassurance {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin: var(--space-4) 0 0;
+}
+
+/* Very small screens */
+@media (max-width: 374px) {
+  .section {
+    padding: var(--space-8) var(--space-4);
+  }
+  
+  .headline {
+    font-size: var(--text-xl);
+  }
+  
+  .body {
+    font-size: var(--text-sm);
+  }
+  
+  .ctaButton {
+    min-height: 48px;
+    font-size: var(--text-base);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

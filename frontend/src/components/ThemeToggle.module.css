@@ -1,0 +1,110 @@
+/* ThemeToggle - 테마 토글 버튼 */
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.toggle:hover .icon {
+  transform: rotate(15deg);
+}
+
+.iconPlaceholder {
+  width: 20px;
+  height: 20px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+/* ThemeSelector - 마이페이지용 확장 버전 */
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+}
+
+.selectorLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+}
+
+.selectorOptions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.selectorOption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: var(--bg-secondary);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.selectorOption:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.selectorActive {
+  background: var(--primary-light) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+.selectorPlaceholder {
+  height: 100px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+}
+
+/* 극소 화면 */
+@media (max-width: 374px) {
+  .toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .selectorOption {
+    padding: var(--space-2);
+  }
+
+  .selectorOption span {
+    font-size: 10px;
+  }
+}

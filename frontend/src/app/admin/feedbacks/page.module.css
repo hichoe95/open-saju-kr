@@ -1,0 +1,435 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-4);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.title svg {
+    color: var(--primary);
+}
+
+.subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    padding: var(--space-4);
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--bg-tertiary);
+}
+
+.filters svg {
+    color: var(--text-tertiary);
+}
+
+.filterSelect {
+    padding: var(--space-2) var(--space-4);
+    padding-right: 36px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.feedbackList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+}
+
+.feedbackCard {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--bg-tertiary);
+    transition: all 0.2s ease;
+}
+
+.feedbackCard:hover {
+    border-color: var(--border-light);
+}
+
+.feedbackCard.expanded {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.feedbackHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+    cursor: pointer;
+}
+
+.feedbackMeta {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.categoryBadge,
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+}
+
+.feedbackDate {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+}
+
+.feedbackContent {
+    margin-bottom: var(--space-3);
+}
+
+.feedbackContent p {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.feedbackFooter {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--bg-tertiary);
+}
+
+.userId {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+}
+
+.feedbackActions {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--bg-tertiary);
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.noteSection {
+    margin-bottom: var(--space-4);
+}
+
+.noteSection label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-2);
+}
+
+.noteSection textarea {
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    font-family: inherit;
+    resize: vertical;
+}
+
+.noteSection textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+}
+
+.statusActions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.statusActions > span {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    margin-right: var(--space-2);
+}
+
+.statusButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border: 1.5px solid;
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.statusButton:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.statusButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.statusButton.active {
+    cursor: default;
+}
+
+.buttonSpinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.noteHint {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.existingNote {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    background: var(--bg-hover);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    line-height: 1.5;
+}
+
+.existingNote strong {
+    color: var(--text-primary);
+}
+
+.respondedAt {
+    margin-left: 6px;
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-10);
+    color: var(--text-tertiary);
+    gap: var(--space-3);
+}
+
+.emptyState svg {
+    opacity: 0.5;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.pageButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--border-default);
+}
+
+.pageButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.loadingState,
+.errorState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--space-4);
+    color: var(--text-tertiary);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.errorState svg {
+    color: var(--error);
+}
+
+.retryButton {
+    padding: var(--space-2) var(--space-4);
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+}
+
+.retryButton:hover {
+    background: var(--primary-hover);
+}
+
+.exportButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exportButton:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.exportButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .filterSelect {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .feedbackHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .statusActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .statusButton {
+        justify-content: center;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .title { color: var(--text-primary); }
+    .filters { background: var(--bg-card); border-color: var(--bg-tertiary); }
+    .filterSelect { background: var(--bg-tertiary); border-color: var(--text-secondary); color: var(--text-primary); }
+    .feedbackCard { background: var(--bg-card); border-color: var(--bg-tertiary); }
+    .feedbackContent p { color: var(--text-secondary); }
+    .feedbackFooter { border-color: var(--bg-tertiary); }
+    .feedbackActions { border-color: var(--bg-tertiary); }
+    .noteSection textarea { background: var(--bg-tertiary); border-color: var(--text-secondary); color: var(--text-primary); }
+    .existingNote { background: var(--bg-tertiary); }
+    .pageButton { background: var(--bg-tertiary); border-color: var(--text-secondary); color: var(--text-primary); }
+}
+
+[data-theme="dark"] .title { color: var(--text-primary); }
+[data-theme="dark"] .filters { background: var(--bg-card); border-color: var(--bg-tertiary); }
+[data-theme="dark"] .filterSelect { background: var(--bg-tertiary); border-color: var(--text-secondary); color: var(--text-primary); }
+[data-theme="dark"] .feedbackCard { background: var(--bg-card); border-color: var(--bg-tertiary); }
+[data-theme="dark"] .feedbackContent p { color: var(--text-secondary); }
+[data-theme="dark"] .feedbackFooter { border-color: var(--bg-tertiary); }
+[data-theme="dark"] .feedbackActions { border-color: var(--bg-tertiary); }
+[data-theme="dark"] .noteSection textarea { background: var(--bg-tertiary); border-color: var(--text-secondary); color: var(--text-primary); }
+[data-theme="dark"] .existingNote { background: var(--bg-tertiary); }
+[data-theme="dark"] .pageButton { background: var(--bg-tertiary); border-color: var(--text-secondary); color: var(--text-primary); }

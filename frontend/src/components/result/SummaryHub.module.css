@@ -1,0 +1,471 @@
+/* Summary Hub - First Result Experience */
+
+.hub {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-4);
+}
+
+/* Hero Section with SajuCard */
+.hubHero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+/* Pillars Quick View */
+.pillarsQuickView {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+}
+
+.pillarsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.pillarsTitle {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.pillarsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+}
+
+.pillarItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-2);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.pillarLabel {
+    font-size: 11px;
+    font-weight: var(--font-semibold);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pillarValue {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--primary);
+    font-family: 'Noto Serif KR', serif;
+}
+
+/* Five Elements Quick View */
+.elementsQuickView {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.elementsTitle {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--primary);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.elementsRow {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.elementChip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+}
+
+.elementName {
+    font-size: 10px;
+    font-weight: var(--font-semibold);
+    color: var(--text-tertiary);
+}
+
+.elementBar {
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.elementFill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.elementFill.water { background: var(--color-water); }
+.elementFill.wood { background: var(--color-wood); }
+.elementFill.fire { background: var(--color-fire); }
+.elementFill.metal { background: var(--color-metal); }
+.elementFill.earth { background: var(--color-earth); }
+
+.elementValue {
+    font-size: 10px;
+    font-weight: var(--font-bold);
+    color: var(--text-secondary);
+}
+
+/* Character Card */
+.characterCard {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    margin-top: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.characterIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.characterInfo {
+    flex: 1;
+}
+
+.characterType {
+    font-size: 11px;
+    font-weight: var(--font-semibold);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.characterName {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.characterDesc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Summary Section */
+.summarySection {
+    margin-top: var(--space-4);
+}
+
+.sectionTitle {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* Summary Cards Grid */
+.summaryGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+}
+
+.summaryCard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-card);
+}
+
+.cardPreviewButton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+    text-align: left;
+}
+
+.cardPreviewButton:hover {
+    transform: translateY(-2px);
+}
+
+.cardPreviewButton:active {
+    transform: translateY(0);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.cardIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.cardTitle {
+    flex: 1;
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+.cardArrow {
+    color: var(--text-tertiary);
+    transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.cardPreviewButton:hover .cardArrow {
+    transform: translateX(4px);
+    color: var(--primary);
+}
+
+.cardDetailButton {
+    min-height: 44px;
+    border: none;
+    border-radius: 999px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.cardDetailButton:hover {
+    background: var(--primary-100);
+    transform: translateY(-1px);
+}
+
+.cardSummary {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Scroll Hint */
+.scrollHint {
+    text-align: center;
+    padding: var(--space-4);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+}
+
+/* Priority Colors for Cards */
+.cardLove .cardIcon {
+    background: #FEE2E2;
+    color: #EF4444;
+}
+
+.cardMoney .cardIcon {
+    background: #FEF3C7;
+    color: #F59E0B;
+}
+
+.cardCareer .cardIcon {
+    background: #DBEAFE;
+    color: #3B82F6;
+}
+
+.cardStudy .cardIcon {
+    background: #D1FAE5;
+    color: #10B981;
+}
+
+.cardHealth .cardIcon {
+    background: #FCE7F3;
+    color: #EC4899;
+}
+
+.cardCompatibility .cardIcon {
+    background: #E0E7FF;
+    color: #6366F1;
+}
+
+.cardDaeun .cardIcon {
+    background: #F3E8FF;
+    color: #A855F7;
+}
+
+.cardLife .cardIcon {
+    background: #ECFDF5;
+    color: #059669;
+}
+
+/* Tablet and up */
+@media (min-width: 480px) {
+    .summaryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summaryCard:nth-child(1),
+    .summaryCard:nth-child(2) {
+        grid-column: span 1;
+    }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .hub {
+        padding: var(--space-6);
+    }
+
+    .summaryGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    .cardSummary {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 374px) {
+    .hub {
+        padding: var(--space-3);
+        gap: var(--space-4);
+    }
+
+    .pillarsQuickView {
+        padding: var(--space-3);
+    }
+
+    .pillarItem {
+        padding: var(--space-1);
+    }
+
+    .pillarLabel {
+        font-size: 9px;
+    }
+
+    .pillarValue {
+        font-size: var(--text-base);
+    }
+
+    .elementsQuickView {
+        padding: var(--space-3);
+    }
+
+    .elementsTitle {
+        font-size: 11px;
+        margin-bottom: var(--space-2);
+    }
+
+    .elementName {
+        font-size: 9px;
+    }
+
+    .elementValue {
+        font-size: 9px;
+    }
+
+    .characterCard {
+        padding: var(--space-3);
+        gap: var(--space-3);
+    }
+
+    .characterIcon {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .characterName {
+        font-size: var(--text-lg);
+    }
+
+    .characterDesc {
+        font-size: 12px;
+    }
+
+    .sectionTitle {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-3);
+    }
+
+    .summaryCard {
+        padding: var(--space-3);
+    }
+
+    .cardIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cardIcon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .cardTitle {
+        font-size: var(--text-sm);
+    }
+
+    .cardSummary {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .scrollHint {
+        font-size: 12px;
+        padding: var(--space-3);
+    }
+}

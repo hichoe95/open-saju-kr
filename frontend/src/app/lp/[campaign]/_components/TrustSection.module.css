@@ -1,0 +1,123 @@
+/* TrustSection - Trust bullets with numbered badges (NO glass) */
+
+.section {
+  padding-top: var(--space-16);
+}
+
+/* Headline */
+.headline {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-8);
+  text-align: center;
+}
+
+/* Bullets container */
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+/* Individual bullet row */
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  animation: fadeInUp 0.6s var(--ease-out) forwards;
+  opacity: 0;
+}
+
+.bullet:nth-child(1) { animation-delay: 0.1s; }
+.bullet:nth-child(2) { animation-delay: 0.2s; }
+.bullet:nth-child(3) { animation-delay: 0.3s; }
+
+/* Icon badge - gradient circle with number */
+.iconBadge {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-500) 100%);
+  border-radius: var(--radius-md);
+}
+
+/* Icon number text */
+.iconNumber {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+/* Bullet content */
+.bulletContent {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Bullet title */
+.bulletTitle {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-1);
+}
+
+/* Bullet description */
+.bulletDescription {
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Supporting line */
+.supportingLine {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-align: center;
+  margin: 0;
+}
+
+/* Very small screens */
+@media (max-width: 374px) {
+  .headline {
+    font-size: var(--text-xl);
+  }
+  
+  .iconBadge {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .iconNumber {
+    font-size: 10px;
+  }
+  
+  .bulletTitle {
+    font-size: var(--text-sm);
+  }
+  
+  .bulletDescription {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

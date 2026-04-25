@@ -1,0 +1,138 @@
+/* HowItWorksSection - Vertical timeline with numbered steps */
+
+.section {
+  padding-top: var(--space-16);
+}
+
+/* Headline */
+.headline {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-8);
+  text-align: center;
+}
+
+/* Timeline container */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Individual step row */
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  position: relative;
+  animation: fadeInUp 0.6s var(--ease-out) forwards;
+  opacity: 0;
+}
+
+.step:nth-child(1) { animation-delay: 0.1s; }
+.step:nth-child(2) { animation-delay: 0.2s; }
+.step:nth-child(3) { animation-delay: 0.3s; }
+
+/* Number circle with gradient */
+.stepNumber {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-500) 100%);
+  border-radius: 50%;
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+/* Connecting line between steps */
+.connector {
+  position: absolute;
+  left: 17px; /* Center of the 36px circle */
+  top: 36px;
+  width: 2px;
+  height: calc(100% + var(--space-4));
+  background: linear-gradient(
+    180deg,
+    var(--primary-500) 0%,
+    var(--accent-500) 100%
+  );
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* Step content */
+.stepContent {
+  flex: 1;
+  padding-bottom: var(--space-6);
+}
+
+/* Step label */
+.stepLabel {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+/* Step description */
+.stepDescription {
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Supporting line */
+.supportingLine {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-align: center;
+  margin: var(--space-4) 0 0;
+}
+
+/* Very small screens */
+@media (max-width: 374px) {
+  .headline {
+    font-size: var(--text-xl);
+  }
+  
+  .stepNumber {
+    width: 32px;
+    height: 32px;
+    font-size: var(--text-xs);
+  }
+  
+  .connector {
+    left: 15px;
+    top: 32px;
+  }
+  
+  .stepLabel {
+    font-size: var(--text-base);
+  }
+  
+  .stepDescription {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

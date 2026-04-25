@@ -1,0 +1,420 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    overflow: hidden;
+    /* iOS safe-area 대응 */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+.header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 100;
+    min-height: 56px;
+}
+
+.header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.actionButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    min-height: 44px;
+}
+
+.actionButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.actionButton:active {
+    transform: scale(0.95);
+}
+
+/* 닫기 버튼 강조 */
+.closeButton {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    background: radial-gradient(circle at center, var(--text-primary) 0%, #000 100%);
+}
+
+.slideContainer {
+    width: 100%;
+    max-width: 360px;
+    /* 9:16 ratio approx */
+    aspect-ratio: 9 / 16;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Slide Styles */
+.cardHeader {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.animalIcon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+.mainTitle {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+.subTitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Navigation Buttons - 모바일 가시성 개선 */
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(99, 102, 241, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navButton:hover {
+    background: rgba(99, 102, 241, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.navButton:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.prev {
+    left: 8px;
+}
+
+.next {
+    right: 8px;
+}
+
+
+/* Indicators */
+.indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dot.active {
+    background: white;
+    width: 20px;
+    border-radius: 10px;
+}
+
+/* Card Content Helpers */
+.radarContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tag {
+    background: var(--bg-tertiary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.luckyGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.luckyItem {
+    background: var(--bg-hover);
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.luckyIcon {
+    font-size: 24px;
+}
+
+.luckyLabel {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-weight: 600;
+}
+
+.luckyValue {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 700;
+    word-break: keep-all;
+}
+
+.footer {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    font-family: monospace;
+}
+
+/* 모바일 반응형 - 헤더 및 닫기 버튼 가시성 개선 */
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 16px;
+        min-height: 52px;
+    }
+
+    .header h2 {
+        font-size: 13px;
+    }
+
+    .actions {
+        gap: 8px;
+    }
+
+    .actionButton {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .container {
+        padding: 12px;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .slideContainer {
+        max-width: 300px;
+    }
+
+    .card {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .animalIcon {
+        font-size: 44px;
+        margin-bottom: 10px;
+    }
+
+    .mainTitle {
+        font-size: 18px;
+    }
+
+    .subTitle {
+        font-size: 13px;
+    }
+
+    .navButton {
+        width: 44px;
+        height: 44px;
+    }
+
+    .prev {
+        left: 4px;
+    }
+
+    .next {
+        right: 4px;
+    }
+
+    .indicators {
+        bottom: 16px;
+    }
+}
+
+/* 극소 화면 (374px 이하) - iPhone SE/미니 */
+@media (max-width: 374px) {
+    .header {
+        padding: 10px 12px;
+        min-height: 48px;
+    }
+
+    .header h2 {
+        font-size: 12px;
+    }
+
+    .actionButton {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 4px;
+        min-height: 36px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .slideContainer {
+        max-width: 260px;
+    }
+
+    .card {
+        padding: 16px 14px;
+        border-radius: 14px;
+    }
+
+    .animalIcon {
+        font-size: 36px;
+        margin-bottom: 8px;
+    }
+
+    .mainTitle {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .subTitle {
+        font-size: 12px;
+    }
+
+    .tag {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    .navButton {
+        width: 36px;
+        height: 36px;
+    }
+
+    .indicators {
+        bottom: 12px;
+        gap: 5px;
+    }
+
+    .dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .dot.active {
+        width: 14px;
+    }
+
+    .footer {
+        bottom: 12px;
+        font-size: 9px;
+    }
+}

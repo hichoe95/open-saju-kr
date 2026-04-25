@@ -1,0 +1,118 @@
+/* Landing Page - Dark Mystical Atmosphere */
+
+.page {
+  min-height: 100vh;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: 80px; /* Account for sticky CTA bar */
+  
+  /* Dark mystical gradient - always dark regardless of theme */
+  background: linear-gradient(180deg, #1a1033 0%, #0f0f14 30%, #12071f 60%, #1a1033 100%);
+  
+  /* Force light text colors for dark background */
+  --text-primary: #F7F8FA;
+  --text-secondary: #A0A8B8;
+  --text-tertiary: #6B7280;
+  
+  /* Override glass for dark mystical mood */
+  --surface-glass: rgba(30, 30, 50, 0.6);
+  --border-light: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark mode - even darker gradient */
+@media (prefers-color-scheme: dark) {
+  .page {
+    background: linear-gradient(180deg, #0a0612 0%, #0f0f14 30%, #0d051a 60%, #0a0612 100%);
+  }
+}
+
+[data-theme="dark"] .page {
+  background: linear-gradient(180deg, #0a0612 0%, #0f0f14 30%, #0d051a 60%, #0a0612 100%);
+}
+
+/* Content container */
+.content {
+  padding: 0 var(--space-5);
+}
+
+/* Section spacing */
+.section {
+  padding-top: var(--space-16);
+}
+
+/* Footer styles */
+.footer {
+  margin-top: var(--space-16);
+  padding: var(--space-8) var(--space-5);
+  text-align: center;
+}
+
+.disclaimer {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  line-height: var(--leading-relaxed);
+  opacity: 0.7;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.footerLink {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footerLink:hover {
+  color: var(--text-secondary);
+}
+
+.footerDivider {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+  font-size: var(--text-xs);
+}
+
+/* Section wrapper for scroll-triggered animations */
+.sectionWrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.sectionWrapper[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Very small screens */
+@media (max-width: 374px) {
+  .content {
+    padding: 0 var(--space-4);
+  }
+  
+  .section {
+    padding-top: var(--space-12);
+  }
+  
+  .footer {
+    padding: var(--space-6) var(--space-4);
+  }
+}

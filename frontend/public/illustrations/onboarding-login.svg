@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background glow -->
+  <circle cx="200" cy="130" r="90" fill="url(#loginGlow)" opacity="0.3"/>
+  
+  <!-- Shield/security icon -->
+  <path d="M200 50 L260 80 L260 140 C260 180 230 210 200 220 C170 210 140 180 140 140 L140 80 Z" 
+        fill="url(#shieldGradient)" stroke="url(#shieldStroke)" stroke-width="2"/>
+  
+  <!-- Checkmark inside shield -->
+  <path d="M175 130 L190 145 L225 110" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Social login buttons representation -->
+  <!-- Kakao -->
+  <g transform="translate(80, 240)">
+    <rect width="60" height="40" rx="10" fill="#FEE500"/>
+    <circle cx="30" cy="18" r="8" fill="#3C1E1E"/>
+    <path d="M22 22 L30 30 L38 22" stroke="#3C1E1E" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Naver -->
+  <g transform="translate(170, 240)">
+    <rect width="60" height="40" rx="10" fill="#03C75A"/>
+    <text x="30" y="26" font-size="18" fill="white" text-anchor="middle" font-weight="700">N</text>
+  </g>
+  
+  <!-- Google -->
+  <g transform="translate(260, 240)">
+    <rect width="60" height="40" rx="10" fill="white" stroke="#E5E8EB" stroke-width="1"/>
+    <circle cx="30" cy="20" r="10" stroke="#4285F4" stroke-width="2" fill="none"/>
+    <path d="M30 20 L40 20" stroke="#EA4335" stroke-width="2"/>
+    <path d="M30 10 L30 20" stroke="#34A853" stroke-width="2"/>
+  </g>
+  
+  <!-- User silhouette -->
+  <circle cx="200" cy="105" r="25" fill="white" opacity="0.2"/>
+  
+  <!-- Lock icon at bottom of shield -->
+  <rect x="190" y="175" width="20" height="15" rx="3" fill="white" opacity="0.9"/>
+  <path d="M195 175 L195 170 A5 5 0 0 1 205 170 L205 175" stroke="white" stroke-width="2" fill="none"/>
+  
+  <!-- Sparkles -->
+  <circle cx="120" cy="80" r="3" fill="#F59E0B"/>
+  <circle cx="280" cy="90" r="2.5" fill="#8B5CF6"/>
+  <circle cx="100" cy="160" r="2" fill="#4F46E5"/>
+  <circle cx="300" cy="150" r="3" fill="#F59E0B"/>
+  
+  <defs>
+    <radialGradient id="loginGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shieldGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="shieldStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+</svg>

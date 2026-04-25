@@ -1,0 +1,32 @@
+.grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.cols1 {
+    grid-template-columns: 1fr;
+}
+
+.cols2 {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.cols3 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 600px) {
+    .cols2, .cols3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 374px) {
+    .grid {
+        gap: 12px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+}

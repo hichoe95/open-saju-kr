@@ -1,0 +1,74 @@
+<svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle glow -->
+  <circle cx="200" cy="150" r="120" fill="url(#glow1)" opacity="0.3"/>
+  
+  <!-- Stars scattered -->
+  <circle cx="80" cy="60" r="3" fill="#F59E0B"/>
+  <circle cx="320" cy="80" r="2" fill="#8B5CF6"/>
+  <circle cx="60" cy="180" r="2.5" fill="#4F46E5"/>
+  <circle cx="340" cy="200" r="3" fill="#F59E0B"/>
+  <circle cx="100" cy="240" r="2" fill="#7C3AED"/>
+  <circle cx="300" cy="50" r="2" fill="#4F46E5"/>
+  
+  <!-- Main mystical orb -->
+  <circle cx="200" cy="130" r="70" fill="url(#orbGradient)" stroke="url(#orbStroke)" stroke-width="2"/>
+  
+  <!-- Yin-yang inside orb -->
+  <path d="M200 80 A25 25 0 0 1 200 180 A25 25 0 0 0 200 80" fill="#191F28"/>
+  <path d="M200 80 A25 25 0 0 0 200 180 A25 25 0 0 1 200 80" fill="#FFFFFF"/>
+  <circle cx="200" cy="105" r="8" fill="#FFFFFF"/>
+  <circle cx="200" cy="155" r="8" fill="#191F28"/>
+  
+  <!-- Decorative rings -->
+  <circle cx="200" cy="130" r="85" stroke="url(#ringGradient)" stroke-width="1" fill="none" opacity="0.5"/>
+  <circle cx="200" cy="130" r="95" stroke="url(#ringGradient)" stroke-width="0.5" fill="none" opacity="0.3"/>
+  
+  <!-- Four pillars representation -->
+  <rect x="120" y="220" width="40" height="50" rx="6" fill="url(#pillarGradient1)"/>
+  <rect x="170" y="220" width="40" height="50" rx="6" fill="url(#pillarGradient2)"/>
+  <rect x="220" y="220" width="40" height="50" rx="6" fill="url(#pillarGradient3)"/>
+  <rect x="270" y="220" width="40" height="50" rx="6" fill="url(#pillarGradient4)"/>
+  
+  <!-- Pillar labels -->
+  <text x="140" y="250" font-size="12" fill="white" text-anchor="middle" font-weight="600">年</text>
+  <text x="190" y="250" font-size="12" fill="white" text-anchor="middle" font-weight="600">月</text>
+  <text x="240" y="250" font-size="12" fill="white" text-anchor="middle" font-weight="600">日</text>
+  <text x="290" y="250" font-size="12" fill="white" text-anchor="middle" font-weight="600">時</text>
+  
+  <defs>
+    <radialGradient id="glow1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="orbGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="orbStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="pillarGradient1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="pillarGradient2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <linearGradient id="pillarGradient3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="pillarGradient4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+</svg>

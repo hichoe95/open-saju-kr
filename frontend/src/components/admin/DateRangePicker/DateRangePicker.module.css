@@ -1,0 +1,114 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.periodButton {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: transparent;
+    border: 1px solid var(--border-light);
+    transition: all 0.2s;
+}
+
+.periodButton:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.periodActive {
+    background: var(--text-primary);
+    color: var(--text-inverse);
+    border-color: var(--text-primary);
+}
+
+.periodActive:hover {
+    background: var(--text-primary);
+    color: var(--text-inverse);
+}
+
+.customRange {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-hover);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-light);
+}
+
+.dateInput {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-default);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--bg-card);
+}
+
+.applyButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background: var(--text-primary);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.applyButton:hover {
+    background: var(--text-primary);
+}
+
+/* Dark mode support if needed, based on existing admin styles */
+@media (prefers-color-scheme: dark) {
+    .periodButton {
+        color: var(--text-tertiary);
+        border-color: var(--bg-tertiary);
+    }
+
+    .periodButton:hover {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+    }
+
+    .periodActive {
+        background: var(--text-primary);
+        color: var(--bg-page);
+        border-color: var(--text-primary);
+    }
+
+    .periodActive:hover {
+        background: var(--text-primary);
+        color: var(--bg-page);
+    }
+
+    .customRange {
+        background: var(--bg-card);
+        border-color: var(--bg-tertiary);
+    }
+
+    .dateInput {
+        background: var(--bg-tertiary);
+        border-color: var(--text-secondary);
+        color: var(--text-primary);
+    }
+
+    .applyButton {
+        background: var(--text-primary);
+        color: var(--bg-page);
+    }
+
+    .applyButton:hover {
+        background: var(--text-primary);
+    }
+}

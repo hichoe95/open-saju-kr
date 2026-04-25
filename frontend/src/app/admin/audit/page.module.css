@@ -1,0 +1,592 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+    gap: var(--space-4);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.title svg {
+    color: var(--primary);
+}
+
+.subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.filtersSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.filterIcon {
+    color: var(--text-tertiary);
+}
+
+.filterSelect,
+.dateInput {
+    padding: var(--space-2) var(--space-3);
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    transition: all 0.15s ease;
+}
+
+.filterSelect {
+    min-width: 180px;
+}
+
+.filterSelect:focus,
+.dateInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.clearButton {
+    padding: var(--space-2) var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+    background: var(--border-light);
+    color: var(--text-primary);
+}
+
+.tableWrapper {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--bg-tertiary);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.table th {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--bg-hover);
+}
+
+.logRow {
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.logRow:hover {
+    background: var(--bg-hover);
+}
+
+.logRow.selected {
+    background: var(--primary-light);
+}
+
+.adminId code {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.actionBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--primary-hover);
+    background: var(--primary-light);
+}
+
+.target {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+}
+
+.dataPreview {
+    max-width: 220px;
+    font-size: var(--text-xs);
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.emptyCell {
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    padding: var(--space-8);
+}
+
+.detailRow td {
+    padding: 0;
+    background: var(--bg-hover);
+}
+
+.detailPanel {
+    position: relative;
+    padding: var(--space-5);
+    border-top: 2px solid var(--primary);
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.closeDetail {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.closeDetail:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.detailMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    padding-right: var(--space-8);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    flex-wrap: wrap;
+}
+
+.diffGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.diffSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.diffSection h3,
+.metaSection h3 {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.codeBlock {
+    margin: 0;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 260px;
+    overflow: auto;
+    background: var(--bg-card);
+}
+
+.beforeBlock {
+    background: var(--error-bg);
+    border-color: var(--error);
+}
+
+.afterBlock {
+    background: var(--success-bg);
+    border-color: var(--success);
+}
+
+.metaSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.pageButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--border-default);
+}
+
+.pageButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.loadingState,
+.errorState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--space-4);
+    color: var(--text-tertiary);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.errorState svg {
+    color: var(--error);
+}
+
+.retryButton {
+    padding: var(--space-2) var(--space-4);
+    background: var(--primary);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+}
+
+.retryButton:hover {
+    background: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+    .filtersSection {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filterGroup {
+        width: 100%;
+    }
+
+    .filterSelect,
+    .dateInput,
+    .clearButton {
+        width: 100%;
+    }
+
+    .tableWrapper {
+        overflow-x: auto;
+    }
+
+    .table {
+        min-width: 840px;
+    }
+
+    .diffGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .title {
+        color: var(--text-primary);
+    }
+
+    .filterSelect,
+    .dateInput {
+        background: var(--bg-tertiary);
+        border-color: var(--text-secondary);
+        color: var(--text-primary);
+    }
+
+    .clearButton {
+        background: var(--bg-tertiary);
+        border-color: var(--text-secondary);
+        color: var(--text-secondary);
+    }
+
+    .tableWrapper {
+        background: var(--bg-card);
+        border-color: var(--bg-tertiary);
+    }
+
+    .table th {
+        background: var(--bg-page);
+        color: var(--text-tertiary);
+    }
+
+    .table th,
+    .table td {
+        border-color: var(--bg-tertiary);
+    }
+
+    .logRow:hover {
+        background: var(--bg-tertiary);
+    }
+
+    .logRow.selected {
+        background: rgba(99, 102, 241, 0.2);
+    }
+
+    .adminId code {
+        background: var(--bg-tertiary);
+        color: var(--border-default);
+    }
+
+    .target,
+    .dataPreview,
+    .detailMeta {
+        color: var(--border-default);
+    }
+
+    .actionBadge {
+        background: rgba(99, 102, 241, 0.2);
+        color: var(--primary-300);
+    }
+
+    .detailRow td {
+        background: var(--bg-page);
+    }
+
+    .closeDetail {
+        background: var(--bg-tertiary);
+        border-color: var(--text-secondary);
+        color: var(--text-primary);
+    }
+
+    .diffSection h3,
+    .metaSection h3 {
+        color: var(--text-primary);
+    }
+
+    .codeBlock {
+        background: var(--bg-card);
+        border-color: var(--text-secondary);
+        color: var(--text-secondary);
+    }
+
+    .beforeBlock {
+        background: rgba(127, 29, 29, 0.35);
+        border-color: rgba(248, 113, 113, 0.5);
+    }
+
+    .afterBlock {
+        background: rgba(20, 83, 45, 0.35);
+        border-color: rgba(74, 222, 128, 0.5);
+    }
+
+    .pageButton {
+        background: var(--bg-tertiary);
+        border-color: var(--text-secondary);
+        color: var(--text-primary);
+    }
+}
+
+[data-theme='dark'] .title {
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .filterSelect,
+[data-theme='dark'] .dateInput {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .clearButton {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+[data-theme='dark'] .tableWrapper {
+    background: var(--bg-card);
+    border-color: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .table th {
+    background: var(--bg-page);
+    color: var(--text-tertiary);
+}
+
+[data-theme='dark'] .table th,
+[data-theme='dark'] .table td {
+    border-color: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .logRow:hover {
+    background: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .logRow.selected {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+[data-theme='dark'] .adminId code {
+    background: var(--bg-tertiary);
+    color: var(--border-default);
+}
+
+[data-theme='dark'] .target,
+[data-theme='dark'] .dataPreview,
+[data-theme='dark'] .detailMeta {
+    color: var(--border-default);
+}
+
+[data-theme='dark'] .actionBadge {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-300);
+}
+
+[data-theme='dark'] .detailRow td {
+    background: var(--bg-page);
+}
+
+[data-theme='dark'] .closeDetail {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .diffSection h3,
+[data-theme='dark'] .metaSection h3 {
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .codeBlock {
+    background: var(--bg-card);
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+[data-theme='dark'] .beforeBlock {
+    background: rgba(127, 29, 29, 0.35);
+    border-color: rgba(248, 113, 113, 0.5);
+}
+
+[data-theme='dark'] .afterBlock {
+    background: rgba(20, 83, 45, 0.35);
+    border-color: rgba(74, 222, 128, 0.5);
+}
+
+[data-theme='dark'] .pageButton {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}

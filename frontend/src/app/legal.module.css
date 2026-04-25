@@ -1,0 +1,154 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.tableSmall {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.tableNoBorder {
+  width: 100%;
+  font-size: 14px;
+}
+
+.headerRow {
+  border-bottom: 2px solid var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.headerCell {
+  text-align: left;
+  padding: 12px 8px;
+}
+
+.headerCellSmall {
+  text-align: left;
+  padding: 10px 8px;
+}
+
+.headerCellCenter {
+  text-align: center;
+  padding: 10px 8px;
+}
+
+.headerCellNarrow {
+  text-align: center;
+  padding: 10px 8px;
+  width: 80px;
+}
+
+.row {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.cell {
+  padding: 10px 8px;
+}
+
+.cellSmall {
+  padding: 8px;
+}
+
+.cellSmallCenter {
+  padding: 8px;
+  text-align: center;
+}
+
+.cellNoBorder {
+  padding: 8px 0;
+}
+
+.cellLabel {
+  padding: 8px 0;
+  width: 120px;
+  font-weight: 600;
+}
+
+.infoBox {
+  background: var(--bg-secondary);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.infoBoxLarge {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.infoBoxTertiary {
+  background: var(--bg-tertiary);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.infoLabel {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.infoLabelAccent {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.infoDetail {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.infoDetailTertiary {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+.infoList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.smallText {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.smallTextMargin {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.footnote {
+  margin-top: 32px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.faqSubtitle {
+  margin-bottom: 40px;
+  color: var(--text-secondary);
+}
+
+.faqQuestion {
+  border-left: 4px solid var(--primary);
+  padding-left: 12px;
+  font-size: 1.2rem;
+}
+
+.faqAnswer {
+  line-height: 1.7;
+  color: var(--text-primary);
+}

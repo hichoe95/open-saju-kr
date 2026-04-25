@@ -1,0 +1,531 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-hover);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 헤더 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    padding-top: max(12px, env(safe-area-inset-top, 12px));
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.dosaAvatar {
+    border-radius: 50%;
+    border: 2px solid var(--border-light);
+}
+
+/* 스크롤 영역 */
+.scrollArea {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 16px;
+}
+
+/* 질문 폼 */
+.questionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.intro {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.introDosa {
+    border-radius: 50%;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+}
+
+.intro h2 {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text-primary);
+}
+
+.intro p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-tertiary);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sectionLabel {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.domainGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.domainChip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 6px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.domainIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.domainActive {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border-color: transparent;
+    color: white;
+}
+
+.domainActive .domainIcon {
+    filter: brightness(0) invert(1);
+}
+
+.questionInput {
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    font-size: 15px;
+    line-height: 1.5;
+    resize: none;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.questionInput:focus {
+    border-color: var(--primary);
+}
+
+.suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.suggestionBtn {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px dashed var(--border-default);
+    background: var(--bg-hover);
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.suggestionBtn:hover {
+    background: var(--bg-card);
+    border-color: var(--primary);
+    border-style: solid;
+}
+
+.submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 로딩 */
+.loadingState {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.loadingDosa {
+    border-radius: 50%;
+    margin-bottom: 24px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.loadingText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.loadingHint {
+    font-size: 13px;
+    color: var(--text-tertiary);
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 에러 */
+.errorState {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.errorState p {
+    color: var(--error);
+    margin-bottom: 16px;
+}
+
+.retryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* 결과 */
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.questionCard {
+    padding: 16px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+    border: 1px solid var(--primary-300);
+}
+
+.questionCardLabel {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.questionCard p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.answerCard {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.answerHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.answerDosa {
+    border-radius: 50%;
+    border: 2px solid var(--border-light);
+}
+
+.recommendBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 2px solid;
+    font-size: 18px;
+    font-weight: 900;
+    width: fit-content;
+}
+
+.summaryText {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.prosConsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.prosBox,
+.consBox,
+.actionsBox {
+    padding: 14px;
+    border-radius: 14px;
+    background: var(--bg-hover);
+}
+
+.prosBox {
+    border-left: 4px solid var(--success);
+}
+
+.consBox {
+    border-left: 4px solid var(--error);
+}
+
+.actionsBox {
+    border-left: 4px solid var(--primary);
+}
+
+.boxHeader {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.prosBox ul,
+.consBox ul,
+.actionsBox ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.prosBox li,
+.consBox li,
+.actionsBox li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+.disclaimer {
+    margin: 0;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-align: center;
+}
+
+.newQuestionButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.newQuestionButton:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+    .prosConsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .domainGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.adviceBox {
+    margin-top: 16px;
+    padding: 16px;
+    background: var(--info-bg);
+    border-radius: 12px;
+    border: 1px solid var(--info);
+}
+
+.adviceHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: var(--info);
+    font-weight: 700;
+}
+
+.adviceContent {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* 결제 관련 스타일 */
+.paymentError {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--error-bg);
+    border: 1px solid var(--error);
+    border-radius: 10px;
+    color: var(--error);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.chargeLink {
+    margin-left: auto;
+    background: var(--error);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.chargeLink:hover {
+    background: var(--error-hover);
+}
+
+.priceHint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-top: 12px;
+}
+
+.freeHint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--primary);
+    margin-top: 12px;
+    font-weight: 500;
+}

@@ -1,0 +1,240 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--card-background, #fff);
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.closeButton:hover {
+  background: var(--background-secondary, #f3f4f6);
+}
+
+.iconWrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--warning);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  margin-bottom: 20px;
+}
+
+.description {
+  margin: -8px 0 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary, #6b7280);
+}
+
+.priceBox {
+  background: var(--background-secondary, #f3f4f6);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.featureName {
+  font-size: 14px;
+  color: var(--text-secondary, #6b7280);
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--warning);
+}
+
+.balanceInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--text-secondary, #6b7280);
+}
+
+.balanceOk {
+  font-weight: 600;
+  color: var(--success);
+}
+
+.balanceLow {
+  font-weight: 600;
+  color: var(--error);
+}
+
+.warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--error-bg);
+  border: 1px solid var(--error);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: var(--error);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cancelButton {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 12px;
+  background: var(--card-background, #fff);
+  color: var(--text-secondary, #6b7280);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background: var(--background-secondary, #f3f4f6);
+}
+
+.confirmButton {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.confirmButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.confirmButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chargeButton {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--warning) 0%, var(--warning) 100%);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.chargeButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+/* 다크 모드 */
+[data-theme="dark"] .modal {
+  background: var(--bg-card);
+}
+
+[data-theme="dark"] .closeButton:hover {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .iconWrapper {
+  background: linear-gradient(135deg, var(--warning) 0%, var(--warning) 100%);
+  color: var(--warning);
+}
+
+[data-theme="dark"] .priceBox {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .featureName {
+  color: var(--text-tertiary);
+}
+
+[data-theme="dark"] .cancelButton {
+  background: var(--bg-tertiary);
+  border-color: var(--text-secondary);
+  color: var(--border-default);
+}
+
+[data-theme="dark"] .cancelButton:hover {
+  background: var(--text-secondary);
+}
+
+[data-theme="dark"] .warning {
+  background: var(--error-bg);
+  border-color: var(--error);
+  color: var(--error);
+}

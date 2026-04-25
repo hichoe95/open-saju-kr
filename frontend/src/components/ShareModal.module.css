@@ -1,0 +1,722 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.overlayCloseButton {
+    position: absolute;
+    inset: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    cursor: default;
+}
+
+.modal {
+    background: var(--bg-card);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    padding: 32px 24px;
+}
+
+/* 로그인 필요 상태 */
+.loginRequired {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 0;
+    color: var(--text-secondary);
+}
+
+.loginRequired h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.loginRequired p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.loginButton {
+    margin-top: 8px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-inverse);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.loginButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* 링크 생성 섹션 */
+.createSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.iconCircle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-inverse);
+}
+
+.createSection h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.expireNote {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    background: var(--bg-hover);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.createButton {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-inverse);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.createButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+}
+
+.createButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--error);
+    padding: 8px 16px;
+    background: var(--error-bg);
+    border-radius: 8px;
+}
+
+/* 성공 섹션 */
+.successSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.successIcon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-inverse);
+}
+
+.successSection h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.urlBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 4px 4px 4px 16px;
+}
+
+.urlInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    outline: none;
+    min-width: 0;
+}
+
+.copyButton {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border: none;
+    border-radius: 10px;
+    color: var(--text-inverse);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copyButton:hover {
+    transform: scale(1.05);
+}
+
+.copiedBadge {
+    font-size: 0.85rem;
+    color: var(--success);
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.expireInfo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.newLinkButton {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.newLinkButton:hover {
+    background: var(--bg-hover);
+    border-color: var(--text-tertiary);
+}
+
+/* ===== 탭 바 ===== */
+.tabBar {
+    display: flex;
+    border-bottom: 1px solid var(--border-light);
+    padding: 0 16px;
+}
+
+.tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    color: var(--text-primary);
+}
+
+.tabActive {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* ===== 카드 섹션 ===== */
+.cardSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* 테마 선택 */
+.themeSelector {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+}
+
+.themeNavBtn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.themeNavBtn:hover {
+    background: var(--bg-card);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.themeLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 100px;
+    justify-content: center;
+}
+
+.themeEmoji {
+    font-size: 1.2rem;
+}
+
+/* 테마 점 인디케이터 */
+.themeDots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.themeDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-light);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.themeDot:hover {
+    background: var(--primary-300);
+}
+
+.themeDotActive {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+.privacyToggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--bg-hover);
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.privacyToggle:hover {
+    background: var(--border-light);
+}
+
+.privacyToggle input {
+    display: none;
+}
+
+.toggleSlider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: var(--border-default);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.toggleSlider::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.privacyToggle input:checked + .toggleSlider {
+    background: var(--primary);
+}
+
+.privacyToggle input:checked + .toggleSlider::after {
+    transform: translateX(20px);
+}
+
+.toggleLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.privacyToggle input:checked ~ .toggleLabel {
+    color: var(--primary);
+}
+
+/* 카드 미리보기 */
+.cardPreview {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    background: var(--bg-hover);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.cardScaler {
+    transform: scale(0.85);
+    transform-origin: top center;
+}
+
+/* 카드 액션 버튼 */
+.cardActions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.cardActionGroup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.shareActionsRow {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.downloadButton,
+.shareButton,
+.kakaoButton,
+.secondaryActionButton {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.downloadButton {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--text-inverse);
+    border: none;
+}
+
+.downloadButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.downloadButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.shareButton {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+}
+
+.shareButton:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.kakaoButton {
+    background: #fee500;
+    color: #191919;
+    border: 1px solid rgba(25, 25, 25, 0.08);
+}
+
+.kakaoButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(254, 229, 0, 0.28);
+}
+
+.kakaoIcon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.secondaryShareActions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.secondaryActionButton {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+}
+
+.secondaryActionButton:hover:not(:disabled) {
+    background: var(--bg-card);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.shareHint {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+    text-align: center;
+    padding: 10px 12px;
+    background: var(--bg-hover);
+    border: 1px dashed var(--border-light);
+    border-radius: 12px;
+}
+
+/* ===== 코드 공유 섹션 ===== */
+.codeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profileRequired {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 0;
+}
+
+.profileRequiredIcon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+}
+
+.profileRequired h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.profileRequired p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.codeDisplay {
+    width: 100%;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.codeText {
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: 6px;
+    color: var(--text-primary);
+    font-family: 'SF Mono', 'JetBrains Mono', 'Fira Code', 'Menlo', 'Consolas', monospace;
+}
+
+.codeHint {
+    margin: 10px 0 0;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.codeCopyButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+    color: var(--text-inverse);
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.codeCopyButton:hover {
+    transform: translateY(-1px);
+}
+
+.codeCopied {
+    background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
+}
+
+.codeInfoList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+}
+
+.codeInfoItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 모바일 최적화 */
+@media (max-width: 480px) {
+    .modal {
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 85vh;
+    }
+
+    .content {
+        padding: 24px 20px 40px;
+    }
+
+    .iconCircle,
+    .successIcon,
+    .profileRequiredIcon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .codeText {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .cardScaler {
+        transform: scale(0.75);
+    }
+
+    .cardActions {
+        flex-direction: column;
+    }
+
+    .shareActionsRow {
+        flex-direction: column;
+    }
+}

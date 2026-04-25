@@ -1,0 +1,158 @@
+<svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background glow -->
+  <circle cx="200" cy="150" r="140" fill="url(#compatGlow)" opacity="0.2"/>
+  
+  <!-- Stars scattered -->
+  <circle cx="50" cy="50" r="2.5" fill="#F59E0B"/>
+  <circle cx="350" cy="40" r="2" fill="#EC4899"/>
+  <circle cx="30" cy="200" r="2" fill="#4F46E5"/>
+  <circle cx="370" cy="180" r="2.5" fill="#F59E0B"/>
+  <circle cx="70" cy="280" r="1.5" fill="#EC4899"/>
+  <circle cx="330" cy="270" r="2" fill="#8B5CF6"/>
+  
+  <!-- Connection line between two people -->
+  <path d="M120 150 Q 200 120 280 150" stroke="url(#connectionGradient)" stroke-width="2" fill="none" stroke-dasharray="8 4" opacity="0.6"/>
+  <path d="M120 150 Q 200 180 280 150" stroke="url(#connectionGradient)" stroke-width="2" fill="none" stroke-dasharray="8 4" opacity="0.6"/>
+  
+  <!-- Person 1 (Left) -->
+  <g transform="translate(70, 100)">
+    <!-- Avatar circle -->
+    <circle cx="50" cy="50" r="45" fill="url(#person1Bg)" stroke="url(#person1Stroke)" stroke-width="2"/>
+    <circle cx="50" cy="50" r="52" stroke="url(#person1Ring)" stroke-width="1" fill="none" opacity="0.4"/>
+    
+    <!-- Simple face -->
+    <circle cx="38" cy="42" r="4" fill="white" opacity="0.9"/>
+    <circle cx="62" cy="42" r="4" fill="white" opacity="0.9"/>
+    <path d="M38 60 Q 50 70 62 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Element badge -->
+    <circle cx="80" cy="20" r="16" fill="url(#elementBadge1)"/>
+    <text x="80" y="25" font-size="12" fill="white" text-anchor="middle" font-weight="600">火</text>
+  </g>
+  
+  <!-- Person 2 (Right) -->
+  <g transform="translate(230, 100)">
+    <!-- Avatar circle -->
+    <circle cx="50" cy="50" r="45" fill="url(#person2Bg)" stroke="url(#person2Stroke)" stroke-width="2"/>
+    <circle cx="50" cy="50" r="52" stroke="url(#person2Ring)" stroke-width="1" fill="none" opacity="0.4"/>
+    
+    <!-- Simple face -->
+    <circle cx="38" cy="42" r="4" fill="white" opacity="0.9"/>
+    <circle cx="62" cy="42" r="4" fill="white" opacity="0.9"/>
+    <path d="M38 60 Q 50 70 62 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Element badge -->
+    <circle cx="80" cy="20" r="16" fill="url(#elementBadge2)"/>
+    <text x="80" y="25" font-size="12" fill="white" text-anchor="middle" font-weight="600">木</text>
+  </g>
+  
+  <!-- Center heart -->
+  <g transform="translate(175, 115)">
+    <path d="M25 45 L25 45 C25 45 5 30 5 18 C5 8 12 2 22 8 L25 10 L28 8 C38 2 45 8 45 18 C45 30 25 45 25 45" 
+          fill="url(#heartGradient)" stroke="url(#heartStroke)" stroke-width="2"/>
+    <!-- Heart glow -->
+    <circle cx="25" cy="25" r="30" fill="url(#heartGlow)" opacity="0.4"/>
+  </g>
+  
+  <!-- Compatibility score card -->
+  <g transform="translate(125, 210)">
+    <rect x="0" y="0" width="150" height="55" rx="12" fill="url(#scoreBg)" stroke="url(#scoreStroke)" stroke-width="1.5"/>
+    <text x="75" y="22" font-size="11" fill="#A78BFA" text-anchor="middle" font-weight="500">궁합 점수</text>
+    <text x="75" y="46" font-size="22" fill="white" text-anchor="middle" font-weight="700">
+      <tspan fill="#F59E0B">92</tspan><tspan fill="#A78BFA" font-size="14">점</tspan>
+    </text>
+  </g>
+  
+  <!-- Synergy indicators -->
+  <g transform="translate(90, 270)">
+    <rect x="0" y="0" width="70" height="24" rx="12" fill="url(#tagBg)" opacity="0.8"/>
+    <text x="35" y="16" font-size="10" fill="white" text-anchor="middle" font-weight="500">🔥 상생</text>
+  </g>
+  <g transform="translate(170, 270)">
+    <rect x="0" y="0" width="70" height="24" rx="12" fill="url(#tagBg2)" opacity="0.8"/>
+    <text x="35" y="16" font-size="10" fill="white" text-anchor="middle" font-weight="500">💕 연인</text>
+  </g>
+  <g transform="translate(250, 270)">
+    <rect x="0" y="0" width="70" height="24" rx="12" fill="url(#tagBg)" opacity="0.8"/>
+    <text x="35" y="16" font-size="10" fill="white" text-anchor="middle" font-weight="500">✨ 시너지</text>
+  </g>
+  
+  <!-- Sparkles around heart -->
+  <circle cx="200" cy="105" r="3" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="175" cy="125" r="2" fill="#EC4899" opacity="0.7"/>
+  <circle cx="225" cy="125" r="2" fill="#EC4899" opacity="0.7"/>
+  <circle cx="185" cy="165" r="2.5" fill="#F59E0B" opacity="0.6"/>
+  <circle cx="215" cy="165" r="2.5" fill="#F59E0B" opacity="0.6"/>
+  
+  <defs>
+    <radialGradient id="compatGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="connectionGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="person1Bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="person1Stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="person1Ring" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="person2Bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="person2Stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="person2Ring" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="elementBadge1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <linearGradient id="elementBadge2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="heartGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F472B6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="heartStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <radialGradient id="heartGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scoreBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </linearGradient>
+    <linearGradient id="scoreStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="tagBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="tagBg2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+  </defs>
+</svg>

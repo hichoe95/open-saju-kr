@@ -1,0 +1,250 @@
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 32px;
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  max-width: 420px;
+  width: 100%;
+}
+
+.iconWrapper {
+  margin-bottom: 24px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: var(--accent-primary);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.successIconWrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.successIcon {
+  color: var(--success);
+}
+
+.sparkle1 {
+  position: absolute;
+  top: -8px;
+  right: -16px;
+  color: var(--warning);
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+.sparkle2 {
+  position: absolute;
+  bottom: 0;
+  left: -12px;
+  color: #f472b6;
+  animation: twinkle 1.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.errorIcon {
+  color: var(--error);
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-top: 12px;
+}
+
+.amountBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.coinIcon {
+  color: var(--warning);
+}
+
+.amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.unit {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.balanceInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.balanceLabel {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.balanceValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nextActions {
+  width: 100%;
+}
+
+.nextTitle {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin: 0 0 16px;
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.primaryButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-600));
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, var(--accent-700), var(--accent-600));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.secondaryButton {
+  width: 100%;
+  padding: 14px 24px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondaryButton:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.errorMessage {
+  color: var(--error);
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 36px 24px;
+    border-radius: 20px;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
+  .amount {
+    font-size: 32px;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 374px) {
+  .card {
+    padding: 28px 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .amount {
+    font-size: 28px;
+  }
+  
+  .balanceInfo {
+    padding: 12px;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

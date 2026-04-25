@@ -1,0 +1,152 @@
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--bg-tertiary) 25%,
+        var(--border-light) 50%,
+        var(--bg-tertiary) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.statCard {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    border: 1px solid var(--bg-tertiary);
+}
+
+.statIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+}
+
+.statContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.statTitle {
+    height: 16px;
+    width: 60%;
+}
+
+.statValue {
+    height: 28px;
+    width: 80%;
+}
+
+.tableRow td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.tableCell {
+    height: 20px;
+    width: 100%;
+}
+
+.chartContainer {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    border: 1px solid var(--bg-tertiary);
+}
+
+.chartHeader {
+    margin-bottom: var(--space-4);
+}
+
+.chartTitle {
+    height: 24px;
+    width: 150px;
+    margin-bottom: var(--space-2);
+}
+
+.chartSubtitle {
+    height: 14px;
+    width: 100px;
+}
+
+.chartArea {
+    width: 100%;
+    border-radius: var(--radius-lg);
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    border: 1px solid var(--bg-tertiary);
+}
+
+.cardTitle {
+    height: 20px;
+    width: 40%;
+    margin-bottom: var(--space-4);
+}
+
+.cardContent {
+    height: 16px;
+    width: 100%;
+    margin-bottom: var(--space-2);
+}
+
+@media (prefers-color-scheme: dark) {
+    .skeleton {
+        background: linear-gradient(
+            90deg,
+            var(--bg-tertiary) 25%,
+            var(--text-secondary) 50%,
+            var(--bg-tertiary) 75%
+        );
+        background-size: 200% 100%;
+    }
+    .statCard,
+    .chartContainer,
+    .card {
+        background: var(--bg-card);
+        border-color: var(--bg-tertiary);
+    }
+    .tableRow td {
+        border-color: var(--bg-tertiary);
+    }
+}
+
+[data-theme="dark"] .skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--bg-tertiary) 25%,
+        var(--text-secondary) 50%,
+        var(--bg-tertiary) 75%
+    );
+    background-size: 200% 100%;
+}
+
+[data-theme="dark"] .statCard,
+[data-theme="dark"] .chartContainer,
+[data-theme="dark"] .card {
+    background: var(--bg-card);
+    border-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .tableRow td {
+    border-color: var(--bg-tertiary);
+}

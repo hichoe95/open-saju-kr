@@ -1,0 +1,540 @@
+/* VS Battle Page Styles */
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--accent-light) 0%, var(--bg-page) 100%);
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: all 0.15s ease;
+}
+
+.backButton:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-default);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.title svg {
+    color: var(--accent);
+}
+
+/* Loading State */
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loadingState p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.loadingState span {
+    font-size: 14px;
+    color: var(--text-tertiary);
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.introCard {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 20px;
+    padding: 28px 24px;
+    text-align: center;
+    border: 1px solid var(--accent);
+}
+
+.introCard svg {
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.introCard h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+}
+
+.introCard p {
+    font-size: 14px;
+    color: var(--accent);
+    margin: 0;
+}
+
+.errorAlert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: var(--error-bg);
+    border: 1px solid var(--error-bg);
+    border-radius: 12px;
+    color: var(--error);
+    font-size: 14px;
+}
+
+.privacyNotice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--success-bg);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--success);
+}
+
+.privacyNotice svg {
+    color: var(--success);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.formGroup label svg {
+    color: var(--accent);
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    font-size: 15px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    transition: all 0.15s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.radioGroup {
+    display: flex;
+    gap: 12px;
+}
+
+.radioLabel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.radioLabel:hover {
+    border-color: var(--accent);
+}
+
+.radioLabel:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+}
+
+.radioLabel input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+.radioLabel span {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-600) 100%);
+    color: var(--text-inverse);
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+/* Result View Styles */
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.winnerBanner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border-radius: 16px;
+    border: 2px solid var(--warning);
+    color: var(--warning);
+    font-size: 20px;
+    font-weight: 800;
+    animation: pulseBanner 2s ease-in-out infinite;
+}
+
+@keyframes pulseBanner {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.winnerBanner svg {
+    color: var(--warning);
+}
+
+.scoreComparison {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.participantCard {
+    flex: 1;
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.winnerCard {
+    border-color: var(--warning);
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+}
+
+.participantHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+}
+
+.participantName {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.score {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.tierBadge {
+    font-size: 24px;
+}
+
+.vsBadge {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--border-light) 100%);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+}
+
+.scoreBarContainer {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--border-light);
+}
+
+.scoreBar {
+    height: 12px;
+    background: var(--bg-tertiary);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.scoreBarFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 100%);
+    border-radius: 999px;
+    transition: width 1s ease-out;
+}
+
+.scoreLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+}
+
+.messageCard {
+    background: linear-gradient(135deg, var(--success-bg) 0%, var(--success-bg) 100%);
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid var(--success-bg);
+}
+
+.messageCard p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--success);
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shareButton,
+.retryButton,
+.primaryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.shareButton {
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+.shareButton:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--border-default);
+}
+
+.retryButton {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-light);
+    color: var(--text-tertiary);
+    cursor: not-allowed;
+}
+
+.primaryButton {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-600) 100%);
+    border: none;
+    color: var(--text-inverse);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.createdAt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 8px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 16px 12px 32px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .introCard {
+        padding: 24px 20px;
+    }
+
+    .introCard h2 {
+        font-size: 18px;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .radioGroup {
+        flex-direction: column;
+    }
+
+    .scoreComparison {
+        flex-direction: column;
+    }
+
+    .vsBadge {
+        order: -1;
+    }
+
+    .participantCard {
+        width: 100%;
+    }
+
+    .winnerBanner {
+        font-size: 18px;
+        padding: 16px;
+    }
+
+    .score {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 374px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .introCard h2 {
+        font-size: 16px;
+    }
+
+    .formGroup input,
+    .formGroup select {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .radioLabel {
+        padding: 12px 14px;
+    }
+
+    .submitButton {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+
+    .score {
+        font-size: 28px;
+    }
+
+    .participantName {
+        font-size: 14px;
+    }
+}

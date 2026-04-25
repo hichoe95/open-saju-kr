@@ -1,0 +1,295 @@
+.card {
+    width: 360px;
+    min-height: 420px;
+    padding: 28px 24px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.bgDecoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.romantic {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff6b9d 100%);
+    color: #ffffff;
+}
+
+.romantic .hearts {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 15% 25%, rgba(255,255,255,0.15) 4px, transparent 4px),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.1) 6px, transparent 6px),
+        radial-gradient(circle at 10% 80%, rgba(255,255,255,0.12) 3px, transparent 3px),
+        radial-gradient(circle at 90% 75%, rgba(255,255,255,0.08) 5px, transparent 5px);
+}
+
+.romantic .sparkles {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+
+.romantic .header { color: rgba(255,255,255,0.95); }
+.romantic .scenarioBadge { background: rgba(255,255,255,0.25); color: #fff; }
+.romantic .nameCard { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); }
+.romantic .nameLabel { color: rgba(255,255,255,0.8); }
+.romantic .nameValue { color: #fff; }
+.romantic .heartConnector { color: #fff; }
+.romantic .scoreCircle { background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.4); }
+.romantic .scoreNumber { color: #fff; }
+.romantic .scoreGrade { color: rgba(255,255,255,0.95); }
+.romantic .summarySection { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); }
+.romantic .summaryText { color: #fff; }
+.romantic .keyword { background: rgba(255,255,255,0.25); color: #fff; }
+.romantic .watermark { color: rgba(255,255,255,0.6); }
+
+.minimal {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #1f2937;
+}
+
+.minimal .header { color: #374151; }
+.minimal .scenarioBadge { background: #f3f4f6; color: #6366F1; }
+.minimal .nameCard { background: #f9fafb; border: 1px solid #e5e7eb; }
+.minimal .nameLabel { color: #6b7280; }
+.minimal .nameValue { color: #1f2937; }
+.minimal .heartConnector { color: #ec4899; }
+.minimal .scoreCircle { background: linear-gradient(135deg, #6366F1, #8B5CF6); }
+.minimal .scoreNumber { color: #fff; }
+.minimal .scoreGrade { color: #6366F1; }
+.minimal .summarySection { background: #f9fafb; border: 1px solid #e5e7eb; }
+.minimal .summaryText { color: #4b5563; }
+.minimal .keyword { background: #EEF2FF; color: #6366F1; }
+.minimal .watermark { color: #9ca3af; }
+
+.dark {
+    background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
+    color: #e2e8f0;
+}
+
+.dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(236,72,153,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(139,92,246,0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.dark .header { color: #c4b5fd; }
+.dark .scenarioBadge { background: rgba(139,92,246,0.3); color: #e9d5ff; }
+.dark .nameCard { background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); }
+.dark .nameLabel { color: #a5b4fc; }
+.dark .nameValue { color: #f1f5f9; }
+.dark .heartConnector { color: #f472b6; }
+.dark .scoreCircle { background: rgba(236,72,153,0.2); border: 2px solid rgba(236,72,153,0.4); }
+.dark .scoreNumber { color: #f9a8d4; }
+.dark .scoreGrade { color: #f472b6; }
+.dark .summarySection { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25); }
+.dark .summaryText { color: #cbd5e1; }
+.dark .keyword { background: rgba(139,92,246,0.2); color: #c4b5fd; }
+.dark .watermark { color: rgba(165,180,252,0.5); }
+
+.cute {
+    background: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
+    color: #831843;
+}
+
+.cute .floatingHearts {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 10% 15%, #f9a8d4 3px, transparent 3px),
+        radial-gradient(circle at 90% 20%, #f472b6 4px, transparent 4px),
+        radial-gradient(circle at 85% 85%, #f9a8d4 3px, transparent 3px),
+        radial-gradient(circle at 15% 75%, #f472b6 2px, transparent 2px);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.cute .header { color: #9d174d; }
+.cute .scenarioBadge { background: #f472b6; color: #fff; border-radius: 20px; }
+.cute .nameCard { background: rgba(255,255,255,0.7); border: 2px dashed #f472b6; border-radius: 16px; }
+.cute .nameLabel { color: #be185d; }
+.cute .nameValue { color: #831843; }
+.cute .heartConnector { color: #ec4899; }
+.cute .scoreCircle { background: rgba(244,114,182,0.2); border: 3px solid #f472b6; }
+.cute .scoreNumber { color: #be185d; }
+.cute .scoreGrade { color: #9d174d; }
+.cute .summarySection { background: rgba(255,255,255,0.6); border: 2px dashed #f9a8d4; border-radius: 16px; }
+.cute .summaryText { color: #9d174d; }
+.cute .keyword { background: #f472b6; color: #fff; border-radius: 20px; }
+.cute .watermark { color: rgba(157,23,77,0.4); }
+
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.scenarioBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.namesSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.nameCard {
+    flex: 1;
+    max-width: 120px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.nameLabel {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.nameValue {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.heartConnector {
+    font-size: 24px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.scoreSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.scoreCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.scoreEmoji {
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+}
+
+.scoreNumber {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    margin-top: 8px;
+}
+
+.scoreUnit {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.scoreGrade {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.summarySection {
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.summaryText {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 500;
+}
+
+.keywordSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.keyword {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.watermark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 12px;
+    font-size: 12px;
+    opacity: 0.6;
+    position: relative;
+    z-index: 1;
+}
+
+.watermarkLogo {
+    font-size: 14px;
+}
+
+.watermarkText {
+    font-weight: 500;
+    letter-spacing: 1px;
+}

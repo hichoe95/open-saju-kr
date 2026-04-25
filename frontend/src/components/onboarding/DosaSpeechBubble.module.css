@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.dosaWrapper {
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.dosaImage {
+  border-radius: 50%;
+  filter: drop-shadow(0 12px 24px rgba(99, 102, 241, 0.25));
+  object-fit: cover;
+}
+
+.bubbleWrapper {
+  width: 100%;
+  max-width: 340px;
+  cursor: pointer;
+}
+
+/* 말풍선 - 동양 전통 느낌 + 세련된 디자인 */
+.bubble {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+  border-radius: 24px;
+  padding: 24px 28px;
+  box-shadow:
+    0 4px 24px rgba(139, 92, 51, 0.12),
+    0 2px 8px rgba(139, 92, 51, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  min-height: 90px;
+  border: 2px solid rgba(184, 140, 90, 0.25);
+}
+
+/* 말풍선 포인터 - 위쪽 */
+.bubble::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid rgba(184, 140, 90, 0.25);
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--bg-card);
+}
+
+/* 장식 요소 - 좌상단, 우하단 코너 */
+.bubble .cornerDecor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(184, 140, 90, 0.3);
+}
+
+.message {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin: 0;
+  word-break: keep-all;
+  font-weight: 400;
+}
+
+/* 강조 텍스트 스타일 */
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 60%, rgba(184, 140, 90, 0.2) 60%);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.cursor {
+  animation: blink 0.8s infinite;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.skipHint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 다크 모드 지원 */
+:global([data-theme="dark"]) .bubble {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 50%, var(--bg-card) 100%);
+  border-color: rgba(184, 140, 90, 0.35);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:global([data-theme="dark"]) .bubble::after {
+  border-bottom-color: var(--bg-card);
+}
+
+:global([data-theme="dark"]) .message {
+  color: var(--text-primary);
+}
+
+:global([data-theme="dark"]) .highlight {
+  color: var(--primary);
+  background: linear-gradient(180deg, transparent 60%, rgba(184, 140, 90, 0.25) 60%);
+}
+
+:global([data-theme="dark"]) .skipHint {
+  color: var(--text-tertiary);
+}

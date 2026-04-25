@@ -1,0 +1,3397 @@
+/* ResultTabs - Toss-inspired Clean Design */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    animation: slideUp 0.5s var(--ease-out);
+}
+
+/* 한 줄 요약 */
+.oneLiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: var(--primary-light);
+    border-radius: var(--radius-xl);
+    text-align: center;
+}
+
+.oneLiner p {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--primary);
+    max-width: 600px;
+    line-height: var(--leading-snug);
+}
+
+.quoteIcon {
+    font-size: 20px;
+    color: var(--primary);
+    opacity: 0.6;
+}
+
+/* 탭 네비게이션 - Toss Style */
+.tabNav {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tabNav::-webkit-scrollbar {
+    display: none;
+}
+
+.tabButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+    transition: all var(--duration-fast) var(--ease-out);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.tabButton:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.tabActive {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.tabIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    transition: color var(--duration-fast) var(--ease-out);
+}
+
+.tabActive .tabIcon {
+    color: var(--primary);
+}
+
+.tabLabel {
+    font-weight: var(--font-semibold);
+}
+
+/* 상단 세부 탭 바 (스크롤) */
+.secondaryTabBar {
+    display: flex;
+    gap: 8px;
+    padding: 8px 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.secondaryTabBar::-webkit-scrollbar {
+    display: none;
+}
+
+.secondaryTab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.secondaryTab:hover {
+    border-color: var(--primary-200);
+    background: var(--primary-50);
+}
+
+/* 터치 피드백 - 모바일에서 중요 */
+.secondaryTab:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* 최소 터치 영역 보장 (WCAG 권장 44x44px) */
+@media (pointer: coarse) {
+    .secondaryTab {
+        min-height: 44px;
+    }
+}
+
+.secondaryTabActive {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent) 100%);
+    border-color: transparent;
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-sm);
+}
+
+.secondaryTabIcon {
+    display: flex;
+    align-items: center;
+}
+
+/* 잠금 탭 스타일 */
+.lockedTab {
+    opacity: 0.7;
+    position: relative;
+}
+
+.lockedTab:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card);
+}
+
+.lockBadge {
+    color: var(--text-tertiary);
+    margin-left: 2px;
+}
+
+/* 탭 콘텐츠 */
+.tabContent {
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    animation: fadeIn 0.3s var(--ease-out);
+    box-shadow: var(--shadow-card);
+}
+
+.detailRequestError {
+    margin-bottom: var(--space-4);
+    padding: 12px 14px;
+    border-radius: var(--radius-lg);
+    background: var(--error-bg);
+    border: 1px solid var(--error);
+    color: var(--error);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 사주 카드 (결과 상단) */
+.sajuCard {
+    margin-bottom: var(--space-6);
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .tabNav {
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabButton {
+        flex: 0 0 auto;
+    }
+
+    .flowSteps {
+        flex-direction: column;
+    }
+
+    .yearCards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== 연애 - 다음 만남 플로우 ========== */
+.dateFlow {
+    margin-top: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 20px;
+    border: 1px solid var(--accent-light);
+}
+
+.dateFlow h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flowSteps {
+    display: flex;
+    gap: 16px;
+    position: relative;
+}
+
+/* 화살표 연결선 */
+.flowSteps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 50%, var(--accent) 100%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+.flowStep {
+    flex: 1;
+    padding: 20px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 2px solid var(--accent-light);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.flowLabel {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+    color: var(--bg-card);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.flowStep p {
+    font-size: 14px;
+    color: var(--accent);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* ========== 인생 흐름 (타이밍) 탭 ========== */
+.lifeTab {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.lifeTab h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 운 메커니즘 */
+.mechanism {
+    padding: 24px;
+    background: var(--info-bg);
+    border-radius: 20px;
+    border: 1px solid var(--info-bg);
+}
+
+/* ... mechanism styles ... */
+
+/* 연간 흐름 (슬라이더) */
+.yearsFlow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.yearCards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.yearCard {
+    flex: 0 0 280px;
+    /* 고정 너비 */
+    scroll-snap-align: start;
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
+}
+
+.yearCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.yearHeader {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light) 100%);
+    border-bottom: 1px solid var(--primary-300);
+    text-align: center;
+}
+
+.yearNumber {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.yearContent {
+    padding: 16px 20px;
+}
+
+.yearContent p {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.yearContent p:last-child {
+    margin-bottom: 0;
+}
+
+.yearContent strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* 월별 흐름 (타임라인 슬라이더) */
+.monthCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.monthCard {
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+.monthHeader {
+    padding: 14px 16px;
+    background: linear-gradient(135deg, var(--success-bg) 0%, var(--success-bg) 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--success-bg);
+}
+
+.monthRange {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--success);
+}
+
+.monthGanji {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--success);
+    background: var(--bg-card);
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid var(--success-bg);
+}
+
+.monthContent {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.monthItem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.monthLabel {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+}
+
+.monthItem p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ========== 메타 정보 ========== */
+.meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 16px;
+    background: var(--bg-hover);
+    border-radius: 12px;
+    border: 1px dashed var(--border-light);
+}
+
+.meta span {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .monthCards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 행운 키트 스타일 */
+.luckyContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.luckyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+}
+
+.luckyBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.luckyBadge.lacking {
+    color: var(--error);
+}
+
+.luckyBadge.dominant {
+    color: var(--success);
+}
+
+.luckyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 16px;
+}
+
+.luckyCard {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s;
+}
+
+.luckyCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.luckyTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.colorChip {
+    width: 100%;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-card);
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.amuletText {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.6;
+    background: var(--warning-bg);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px dashed var(--warning);
+}
+
+.copyButton {
+    background: var(--bg-tertiary);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    margin-top: 8px;
+    align-self: center;
+}
+
+.itemList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.itemTag {
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.numberBall {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+/* 한 줄 요약 */
+.oneLiner {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 20px;
+}
+
+.quoteIcon {
+    font-size: 24px;
+    color: var(--text-tertiary);
+    font-family: serif;
+}
+
+/* 결정 CTA & Presentation CTA */
+.ctaContainer {
+    margin: 0 20px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ctaButton {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent) 100%);
+    color: var(--text-inverse);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all var(--duration-normal) var(--ease-out);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 140px;
+    max-width: 240px;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.ctaButton:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* 오늘의 운세 스타일 */
+.todayFortune {
+    margin-bottom: 30px;
+}
+
+.todayCard {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-light);
+}
+
+.scoreGauge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(99, 102, 241, 0.05));
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.scoreLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.scoreBar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.scoreFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.scoreValue {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 36px;
+    text-align: right;
+}
+
+.todayOverview {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.todayOverviewPlaceholder {
+    color: var(--text-secondary);
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.todayDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.todayItem span {
+    display: block;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+}
+
+.todayItem p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.todayAdvice {
+    background: var(--success-bg);
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--success);
+    line-height: 1.5;
+}
+
+.todayWarning {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: var(--error-bg);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--error);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.todayWarning svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.fortuneDateBadge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* 기존 행운 키트 재배치용 */
+/* 기존 행운 키트 재배치용 */
+.luckyContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.luckyGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .luckyGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+.lottoGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.ctaButton span {
+    font-size: 16px;
+}
+
+.outlineButton {
+    background: var(--bg-card);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 12px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-normal) var(--ease-out);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 120px;
+    max-width: 240px;
+}
+
+.outlineButton:hover {
+    background: var(--primary-50);
+    transform: translateY(-2px);
+}
+
+.outlineButton:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.outlineButton span {
+    font-size: 16px;
+}
+
+.primaryBtn {
+    background: var(--color-primary, #7c3aed);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+    flex: 1;
+    min-width: 140px;
+    max-width: 240px;
+}
+
+.primaryBtn:hover {
+    opacity: 0.85;
+}
+
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--bg-card);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 3000;
+    animation: fadeInOut 2s ease-in-out forwards;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+}
+
+/* 대운 타임라인 스타일 */
+.daeunTimelineSection {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.daeunTimelineSection h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.daeunTimelineScroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 20px 10px;
+    margin: 0 -10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-default) transparent;
+}
+
+.daeunTimelineScroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.daeunTimelineScroll::-webkit-scrollbar-thumb {
+    background-color: var(--border-default);
+    border-radius: 3px;
+}
+
+.daeunCard {
+    flex: 0 0 180px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.currentDaeun {
+    border: 2px solid var(--accent);
+    background: var(--accent-light);
+    box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.daeunHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.daeunAge {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.currentBadge {
+    font-size: 0.7rem;
+    background: var(--accent);
+    color: var(--bg-card);
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.daeunGanji {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.daeunTheme {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 2px;
+}
+
+.daeunDesc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.daeunCard:hover .daeunDesc {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+/* Section Heading with Icon */
+.sectionHeading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+}
+
+/* Meta Item with Icon */
+.metaItem {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.inlineIcon {
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 4px;
+}
+
+/* 슬라이더 스타일 */
+.sliderWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sliderBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+}
+
+.sliderBtn:hover:not(:disabled) {
+    background: var(--bg-secondary);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.sliderBtn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.sliderTrack {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.sliderInner {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slideCard {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-hover) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.slideCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.slideCardYear {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.slideCardTheme {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.slideCardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.slideCardRow {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.slideCardLabel {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+}
+
+.slideCardRow p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.sliderDots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.sliderDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.15s ease;
+}
+
+.sliderDot:hover {
+    background: var(--primary-light);
+}
+
+.sliderDotActive {
+    background: var(--primary);
+    width: 20px;
+    border-radius: 999px;
+}
+
+/* 중소 화면 (480px 이하) - 대부분의 모바일 */
+@media (max-width: 480px) {
+    .oneLiner {
+        padding: var(--space-4);
+        gap: var(--space-2);
+    }
+
+    .oneLiner p {
+        font-size: var(--text-base);
+    }
+
+    .ctaContainer {
+        margin: 0 var(--space-4) var(--space-5);
+        gap: var(--space-2);
+    }
+
+    .ctaButton,
+    .outlineButton {
+        min-width: 110px;
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .ctaButton span,
+    .outlineButton span {
+        font-size: 13px;
+    }
+
+    .secondaryTab {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .tabContent {
+        padding: var(--space-5);
+    }
+}
+
+/* 극소 화면 (374px 이하) - iPhone SE/미니 */
+@media (max-width: 374px) {
+    .oneLiner {
+        padding: var(--space-3);
+        gap: var(--space-1);
+    }
+
+    .oneLiner p {
+        font-size: 14px;
+    }
+
+    .quoteIcon {
+        font-size: 16px;
+    }
+
+    .tabNav {
+        padding: var(--space-1);
+        gap: var(--space-1);
+    }
+
+    .tabButton {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-xs);
+    }
+
+    .secondaryTabBar {
+        gap: 4px;
+        padding: 4px 2px;
+    }
+
+    .secondaryTab {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 3px;
+    }
+
+    .secondaryTabIcon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .tabContent {
+        padding: var(--space-4);
+    }
+
+    .ctaContainer {
+        margin: 0 var(--space-2) var(--space-4);
+        gap: var(--space-2);
+    }
+
+    .ctaButton,
+    .outlineButton {
+        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .ctaButton span,
+    .outlineButton span {
+        font-size: 12px;
+    }
+
+    .luckyGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .luckyCard {
+        padding: 16px;
+    }
+
+    .luckyTitle {
+        font-size: 14px;
+    }
+
+    .colorChip {
+        height: 52px;
+        font-size: 14px;
+    }
+
+    .amuletText {
+        font-size: 14px;
+        padding: 14px;
+    }
+
+    .numberBall {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .todayCard {
+        padding: 18px;
+    }
+
+    .todayOverview {
+        font-size: 14px;
+    }
+
+    .todayItem span {
+        font-size: 12px;
+    }
+
+    .todayItem p {
+        font-size: 14px;
+    }
+
+    .todayAdvice {
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    .dateFlow {
+        padding: 18px;
+    }
+
+    .dateFlow h4 {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .flowSteps {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .flowSteps::before {
+        display: none;
+    }
+
+    .flowStep {
+        padding: 14px;
+    }
+
+    .flowLabel {
+        font-size: 11px;
+        padding: 5px 12px;
+        margin-bottom: 10px;
+    }
+
+    .flowStep p {
+        font-size: 13px;
+    }
+
+    .daeunTimelineScroll {
+        gap: 10px;
+        padding: 16px 8px;
+    }
+
+    .daeunCard {
+        flex: 0 0 150px;
+        padding: 12px;
+    }
+
+    .daeunAge {
+        font-size: 0.8rem;
+    }
+
+    .daeunGanji {
+        font-size: 1.2rem;
+    }
+
+    .daeunTheme {
+        font-size: 0.85rem;
+    }
+
+    .daeunDesc {
+        font-size: 0.75rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+
+    .sliderBtn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .slideCard {
+        padding: 16px;
+    }
+
+    .slideCardYear {
+        font-size: 20px;
+    }
+
+    .slideCardTheme {
+        font-size: 14px;
+    }
+
+    .slideCardLabel {
+        font-size: 10px;
+    }
+
+    .slideCardRow p {
+        font-size: 12px;
+    }
+
+    .meta {
+        padding: 12px;
+        gap: 14px;
+    }
+
+    .meta span {
+        font-size: 11px;
+    }
+
+    .toast {
+        padding: 10px 18px;
+        font-size: 13px;
+        bottom: 20px;
+    }
+}
+
+/* ========== 관계 탭 서브탭 스타일 ========== */
+.relationshipTabWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.relationshipSubTabs {
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.relationshipSubTabBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    min-width: 70px;
+}
+
+.relationshipSubTabBtn:hover {
+    background: rgba(79, 70, 229, 0.08);
+}
+
+.relationshipSubTabActive {
+    background: var(--bg-card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subTabEmoji {
+    font-size: 1.25rem;
+}
+
+.relationshipSubTabBtn span:last-child {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.relationshipSubTabActive span:last-child {
+    color: var(--primary);
+}
+
+.emptySubTab {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    color: var(--text-tertiary);
+}
+
+.emptySubTab p {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+}
+
+.emptySubTabHint {
+    font-size: 13px;
+    color: var(--text-disabled);
+}
+
+@media (max-width: 480px) {
+    .relationshipSubTabs {
+        gap: 4px;
+        padding: 3px;
+    }
+
+    .relationshipSubTabBtn {
+        padding: 10px 12px;
+        min-width: 60px;
+    }
+
+    .subTabEmoji {
+        font-size: 1.1rem;
+    }
+
+    .relationshipSubTabBtn span:last-child {
+        font-size: 11px;
+    }
+}
+
+/* ===== v2 행운 탭 강화 스타일 ===== */
+.luckyTab {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.luckyEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.luckyTimeCard {
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--warning);
+}
+
+.luckyTimeHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.luckyTimeTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warning);
+}
+
+.luckyTimeGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.luckyTimeItem {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+}
+
+.luckyTimeLabel {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.goldenTime {
+    border: 2px solid var(--warning);
+}
+
+.goldenTime .luckyTimeValue {
+    color: var(--warning);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.deadTime {
+    border: 2px solid var(--error);
+    background: var(--error-bg);
+}
+
+.deadTime .luckyTimeValue {
+    color: var(--error);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.luckyMissionCard {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--accent-light);
+}
+
+.luckyMissionTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.luckyMissionContent {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.luckyFoodCard {
+    background: linear-gradient(135deg, var(--success-bg) 0%, var(--success-bg) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--success-bg);
+}
+
+.luckyFoodTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--success);
+    margin-bottom: 12px;
+}
+
+.luckyFoodContent {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--success);
+    text-align: center;
+}
+
+.luckyTalismanCard {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--accent-light);
+}
+
+.luckyTalismanTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.luckyTalismanContent {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+    line-height: 1.6;
+    border: 1px dashed var(--accent);
+}
+
+.powerHourCard {
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--warning-bg);
+}
+
+.powerHourTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warning);
+    margin-bottom: 12px;
+}
+
+.powerHourContent {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--warning);
+    text-align: center;
+}
+
+.colorCircle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+    .luckyTimeGrid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .luckyTimeCard,
+    .luckyMissionCard,
+    .luckyFoodCard,
+    .luckyTalismanCard,
+    .powerHourCard {
+        padding: 16px;
+    }
+    
+    .luckyMissionContent,
+    .luckyFoodContent,
+    .luckyTalismanContent,
+    .powerHourContent {
+        font-size: 14px;
+        padding: 14px;
+    }
+}
+
+.daeunEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.daeunSeasonBanner {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--accent-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.daeunSeasonTitle {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.daeunGenre {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 100px;
+}
+
+.daeunProgress {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--border);
+}
+
+.daeunProgressLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.daeunProgressBar {
+    height: 12px;
+    background: var(--bg-secondary);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.daeunProgressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 100%);
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+.daeunEndingPreview {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--accent-light);
+}
+
+.daeunEndingLabel {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.daeunEndingPreview p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.6;
+}
+
+.yearWeatherIcon {
+    font-size: 24px;
+}
+
+.slideCardStrategy {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light) 100%);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid var(--primary-300);
+}
+
+.slideCardStrategy .slideCardLabel {
+    color: var(--primary-hover);
+}
+
+.slideCardStrategy p {
+    color: var(--primary-hover);
+    font-weight: 600;
+}
+
+.loveEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.loveStyleBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.loveStyleBadge {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+    color: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.loveCard {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--accent-light);
+}
+
+.loveCardTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.loveCard p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--accent);
+    line-height: 1.6;
+}
+
+.lovePastLife {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--accent-light);
+}
+
+.lovePastLife .loveCardTitle {
+    color: var(--accent);
+}
+
+.lovePastLife p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--accent);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.moneyEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.moneyTypeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.moneyCard {
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--warning);
+}
+
+.moneyCardTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warning);
+    margin-bottom: 8px;
+}
+
+.moneyCard p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--warning);
+}
+
+.moneyInvestment {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--primary-300);
+}
+
+.moneyInvestment .moneyCardTitle {
+    color: var(--primary-hover);
+}
+
+.moneyInvestment p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--primary-hover);
+    line-height: 1.6;
+}
+
+.moneyBanList {
+    background: var(--error-bg);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--error-bg);
+}
+
+.moneyBanList .moneyCardTitle {
+    color: var(--error);
+}
+
+.banTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.banTag {
+    background: var(--error-bg);
+    color: var(--error);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--error-bg);
+}
+
+.moneyLeak {
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--warning-bg);
+}
+
+.moneyLeak .moneyCardTitle {
+    color: var(--warning);
+}
+
+.moneyLeak p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--warning);
+    line-height: 1.6;
+}
+
+    .fullWidth {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 480px) {
+    .moneyTypeGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.careerEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.careerRoleBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--primary-300);
+}
+
+.careerRoleBadge span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-hover);
+}
+
+.careerRoleBadge strong {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-hover);
+}
+
+.careerSignal {
+    background: linear-gradient(135deg, var(--success-bg) 0%, var(--success-bg) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--success-bg);
+}
+
+.careerCardTitle {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.careerSignal .careerCardTitle {
+    color: var(--success);
+}
+
+.careerSignal p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--success);
+    line-height: 1.6;
+}
+
+.careerVillain {
+    background: var(--error-bg);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--error-bg);
+}
+
+.careerVillain .careerCardTitle {
+    color: var(--error);
+}
+
+.careerVillain p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--error);
+    line-height: 1.6;
+}
+
+.careerTipsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.careerCard {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+}
+
+.careerCard .careerCardTitle {
+    color: var(--text-secondary);
+}
+
+.careerCard p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .careerTipsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .careerRoleBadge,
+    .studyTypeBadge,
+    .healthTypeBadge {
+        padding: 14px;
+    }
+
+    .careerRoleBadge strong,
+    .studyTypeBadge strong,
+    .healthTypeBadge strong {
+        font-size: 18px;
+    }
+}
+
+.studyEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.studyTypeBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--accent-light);
+}
+
+.studyTypeBadge span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.studyTypeBadge strong {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.studyGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.studyCard {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+}
+
+.studyCardTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.studyCard p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.studySlump {
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--warning);
+}
+
+.studySlump .studyCardTitle {
+    color: var(--warning);
+}
+
+.studySlump p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--warning);
+    line-height: 1.6;
+}
+
+.healthEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.healthTypeBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--success-bg) 0%, var(--success-bg) 100%);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--success-bg);
+}
+
+.healthTypeBadge span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--success);
+}
+
+.healthTypeBadge strong {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--success);
+}
+
+.healthWeakOrgans {
+    background: var(--error-bg);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--error-bg);
+}
+
+.healthCardTitle {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.healthWeakOrgans .healthCardTitle {
+    color: var(--error);
+}
+
+.weakOrganTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.weakOrganTag {
+    background: var(--error-bg);
+    color: var(--error);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.healthGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.healthCard {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+}
+
+.healthCard .healthCardTitle {
+    color: var(--text-secondary);
+}
+
+.healthCard p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+@media (max-width: 480px) {
+    .studyGrid,
+    .healthGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.compatibilityEnhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.chemistryScoreCard {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 20px;
+    padding: 24px;
+    border: 2px solid var(--accent-light);
+    text-align: center;
+}
+
+.chemistryScoreLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.chemistryScoreValue {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.chemistryScoreValue span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.chemistryScoreBar {
+    height: 12px;
+    background: var(--bg-card);
+    border-radius: 999px;
+    margin-top: 16px;
+    overflow: hidden;
+    border: 1px solid var(--accent-light);
+}
+
+.chemistryScoreFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 100%);
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+.chemistryInfoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.chemistryInfoCard {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.chemistryInfoCard span {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.chemistryInfoCard strong {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.shareHint {
+    width: 100%;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 8px;
+}
+
+.compatibilityPromptCard {
+    width: 100%;
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid var(--primary-200);
+    background: linear-gradient(135deg, var(--primary-50) 0%, rgba(255,255,255,0.96) 100%);
+    box-shadow: var(--shadow-sm);
+}
+
+.compatibilityPromptBody {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.compatibilityPromptTitle {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.compatibilityPromptText {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.compatibilityPromptActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.compatibilityPromptButton {
+    border: none;
+    border-radius: 999px;
+    background: var(--primary-500);
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.compatibilityPromptDismiss {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.compatibilityToast {
+    position: fixed;
+    right: 20px;
+    bottom: calc(96px + env(safe-area-inset-bottom));
+    z-index: 60;
+    width: min(360px, calc(100vw - 32px));
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(17, 24, 39, 0.96);
+    color: #fff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.compatibilityToastBody {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compatibilityToastTitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.compatibilityToastActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.compatibilityToastPrimary {
+    border: none;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--text-primary);
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.compatibilityToastDismiss {
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.78);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .compatibilityPromptActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .compatibilityToast {
+        left: 16px;
+        right: 16px;
+        bottom: calc(104px + env(safe-area-inset-bottom));
+        width: auto;
+    }
+
+    .compatibilityToastActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .chemistryInfoGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chemistryScoreValue {
+        font-size: 40px;
+    }
+}
+
+/* ========== Summary Tab v2 Styles ========== */
+
+.summaryTab {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.summaryV2Container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 사주 DNA */
+.summaryDnaCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--accent-light);
+    text-align: center;
+}
+
+.summaryDnaCard svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.summaryDnaCard p {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 숨겨진 성격 */
+.summaryPersonalityGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.summaryOuterCard,
+.summaryInnerCard {
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summaryOuterCard {
+    background: linear-gradient(135deg, var(--info-bg) 0%, var(--info-bg) 100%);
+    border: 1px solid var(--info-bg);
+}
+
+.summaryInnerCard {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    border: 1px solid var(--accent-light);
+}
+
+.personalityHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.summaryOuterCard .personalityHeader {
+    color: var(--info);
+}
+
+.summaryInnerCard .personalityHeader {
+    color: var(--accent);
+}
+
+.summaryOuterCard p,
+.summaryInnerCard p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.summaryOuterCard p {
+    color: var(--info);
+}
+
+.summaryInnerCard p {
+    color: var(--accent);
+}
+
+/* 타고난 초능력 */
+.summarySuperpower {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.superpowerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border: 2px solid var(--warning);
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--warning);
+}
+
+.superpowerBadge svg {
+    color: var(--warning);
+}
+
+/* 해시태그 */
+.summaryHashtags {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hashtagsHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+}
+
+.hashtagsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.summaryHashtag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light) 100%);
+    border: 1px solid var(--primary-300);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-hover);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.summaryHashtag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+/* 같은 일간 유명인 */
+.summaryFamousStem {
+    padding: 20px;
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border: 1px solid var(--warning);
+    border-radius: 16px;
+}
+
+.famousStemHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warning);
+    margin-bottom: 12px;
+}
+
+.famousStemHeader svg {
+    color: var(--warning);
+}
+
+.summaryFamousStem p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--warning);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 올해 3가지 예측 */
+.summaryPredictions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.predictionsHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+}
+
+.predictionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summaryPredictionItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.summaryPredictionItem:hover {
+    border-color: var(--primary-300);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+
+.predictionNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--bg-card);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.summaryPredictionItem p {
+    flex: 1;
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 에너지 지수 뱃지 */
+.energyBadge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.energyStrong {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.energyNormal {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.energyWeak {
+    background: var(--error-bg);
+    color: var(--error);
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .summaryTab {
+        gap: 20px;
+    }
+
+    .summaryV2Container {
+        gap: 16px;
+    }
+
+    .summaryDnaCard {
+        padding: 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .summaryDnaCard p {
+        font-size: 16px;
+    }
+
+    .summaryPersonalityGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .summaryOuterCard,
+    .summaryInnerCard {
+        padding: 16px;
+    }
+
+    .superpowerBadge {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .summaryHashtag {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .summaryFamousStem {
+        padding: 16px;
+    }
+
+    .summaryFamousStem p {
+        font-size: 15px;
+    }
+
+    .summaryPredictionItem {
+        padding: 14px;
+        flex-wrap: wrap;
+    }
+
+    .summaryPredictionItem p {
+        width: calc(100% - 44px);
+    }
+
+    .energyBadge {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 374px) {
+    .summaryDnaCard {
+        padding: 16px;
+    }
+
+    .summaryDnaCard p {
+        font-size: 15px;
+    }
+
+    .summaryOuterCard,
+    .summaryInnerCard {
+        padding: 14px;
+    }
+
+    .summaryOuterCard p,
+    .summaryInnerCard p {
+        font-size: 14px;
+    }
+
+    .superpowerBadge {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+/* ========== Money Tab v2 Styles ========== */
+
+.wealthGradeBadge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.wealthGradeS {
+    background: linear-gradient(135deg, var(--warning-bg), var(--warning-bg));
+    border: 1px solid var(--warning);
+}
+
+.wealthGradeA {
+    background: linear-gradient(135deg, var(--bg-tertiary), var(--border-light));
+    border: 1px solid var(--text-tertiary);
+}
+
+.wealthGradeB {
+    background: linear-gradient(135deg, var(--warning-bg), var(--warning-bg));
+    border: 1px solid var(--warning);
+}
+
+.wealthGradeC {
+    background: linear-gradient(135deg, var(--bg-tertiary), var(--border-default));
+    border: 1px solid var(--text-tertiary);
+}
+
+.wealthGradeD {
+    background: linear-gradient(135deg, var(--error-bg), var(--error-bg));
+    border: 1px solid var(--error);
+}
+
+.wealthGradeLetter {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.wealthGradeS .wealthGradeLetter { color: var(--warning); }
+.wealthGradeA .wealthGradeLetter { color: var(--text-tertiary); }
+.wealthGradeB .wealthGradeLetter { color: var(--warning); }
+.wealthGradeC .wealthGradeLetter { color: var(--text-secondary); }
+.wealthGradeD .wealthGradeLetter { color: var(--error); }
+
+.luckyMoneySection {
+    margin-bottom: 16px;
+}
+
+.luckyMoneyTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--success);
+    margin-bottom: 12px;
+}
+
+.luckyMoneyDays {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.luckyMoneyDay {
+    padding: 6px 14px;
+    background: var(--success-bg);
+    color: var(--success);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.leakWeekday {
+    padding: 12px 16px;
+    background: var(--error-bg);
+    border: 1px solid var(--error-bg);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--error);
+    font-size: 14px;
+}
+
+.leakWeekday strong {
+    font-weight: 700;
+}
+
+/* ========== Career Tab v2 Styles ========== */
+
+.dreamJobsSection {
+    margin-top: 16px;
+}
+
+.dreamJobsTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--info);
+    margin-bottom: 12px;
+}
+
+.dreamJobsTitle svg {
+    color: var(--info);
+}
+
+.dreamJobsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dreamJobItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--info-bg);
+    border-radius: 12px;
+}
+
+.dreamJobNumber {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--info);
+    color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.dreamJobName {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--info);
+}
+
+.promotionEnergy {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.promotionEnergy.energyStrong {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.promotionEnergy.energyNormal {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.promotionEnergy.energyWeak {
+    background: var(--error-bg);
+    color: var(--error);
+}
+
+.promotionEnergy strong {
+    font-weight: 700;
+}
+
+/* ========== Love Tab v2 Styles ========== */
+
+.loveEnergyScore {
+    padding: 20px;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-light));
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.loveEnergyTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.loveEnergyTitle svg {
+    color: var(--accent);
+}
+
+.loveEnergyNumber {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.loveEnergyBadge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.loveEnergyBar {
+    height: 8px;
+    background: var(--border-light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.loveEnergyFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.breakupRiskSection {
+    margin-top: 16px;
+}
+
+.breakupRiskTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--error);
+    margin-bottom: 12px;
+}
+
+.breakupRiskTitle svg {
+    color: var(--error);
+}
+
+.breakupRiskMonths {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.breakupRiskMonth {
+    padding: 6px 14px;
+    background: var(--error-bg);
+    color: var(--error);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--error-bg);
+}
+
+.idealStemCard {
+    padding: 16px;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-light));
+    border-radius: 12px;
+    border: 1px solid var(--accent-light);
+    margin-top: 16px;
+}
+
+.idealStemTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.idealStemTitle svg {
+    color: var(--accent);
+}
+
+.idealStemCard p {
+    font-size: 15px;
+    color: var(--accent);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile responsive for v2 tabs */
+@media (max-width: 480px) {
+    .wealthGradeBadge {
+        padding: 12px;
+    }
+
+    .wealthGradeLetter {
+        font-size: 28px;
+    }
+
+    .luckyMoneyDay {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+
+    .dreamJobItem {
+        padding: 10px 14px;
+    }
+
+    .dreamJobNumber {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    .dreamJobName {
+        font-size: 14px;
+    }
+
+    .promotionEnergy {
+        padding: 12px;
+    }
+
+    .loveEnergyScore {
+        padding: 16px;
+    }
+
+    .loveEnergyNumber {
+        font-size: 32px;
+    }
+
+    .breakupRiskMonth {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+
+    .idealStemCard {
+        padding: 14px;
+    }
+}
+
+/* DaeunTab Custom Styles */
+.daeunTabContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    animation: fadeIn 0.3s var(--ease-out);
+}
+
+.daeunHeaderSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--space-2);
+}
+
+.daeunMainTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.daeunMainTitle svg {
+    color: var(--primary);
+}
+
+.daeunCurrentBadge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--primary-light);
+    color: var(--primary-hover);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    margin: 0;
+}
+
+.daeunNarrative {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.narrativeH3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+}
+
+.narrativeH4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-1);
+}
+
+.narrativeQuote {
+    border-left: 4px solid var(--primary);
+    padding-left: var(--space-4);
+    margin: var(--space-2) 0;
+    font-style: italic;
+    color: var(--text-tertiary);
+}
+
+.narrativeList {
+    display: flex;
+    gap: var(--space-2);
+    padding-left: var(--space-2);
+}
+
+.narrativeText {
+    margin: 0;
+}
+
+.daeunSupportCards {
+    margin-top: var(--space-4);
+}
+
+.supportList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.supportList li {
+    position: relative;
+    padding-left: var(--space-4);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.supportList li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.daeunNextChange {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--warning-bg);
+    color: var(--warning);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+}
+
+/* LifeFlowTab Custom Styles */
+.mechanismGrid {
+    margin-top: var(--space-6);
+}
+
+.mechanismList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.mechanismList li {
+    position: relative;
+    padding-left: var(--space-4);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.mechanismList li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--info);
+}

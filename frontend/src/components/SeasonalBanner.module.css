@@ -1,0 +1,137 @@
+/* Seasonal Banner - 마케팅 캠페인 배너 */
+
+.banner {
+    position: relative;
+    width: 100%;
+    padding: var(--space-4) var(--space-5);
+    padding-right: var(--space-10); /* 닫기 버튼 공간 확보 */
+    background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+    border-radius: var(--radius-lg);
+    color: white;
+    animation: slideUp 0.4s var(--ease-out) forwards;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+/* 닫기 버튼 */
+.dismissButton {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.dismissButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.dismissButton:active {
+    transform: scale(0.95);
+}
+
+/* 콘텐츠 영역 */
+.content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.emoji {
+    font-size: 32px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.textContainer {
+    flex: 1;
+    min-width: 0; /* 텍스트 오버플로우 방지 */
+}
+
+.title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    margin: 0;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.9);
+    margin: var(--space-1) 0 0;
+    letter-spacing: -0.01em;
+}
+
+/* CTA 버튼 */
+.ctaButton {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.ctaButton:hover {
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ctaButton:active {
+    transform: translateY(0);
+    transform: scale(0.98);
+}
+
+/* 애니메이션 */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 - 작은 화면 */
+@media (max-width: 374px) {
+    .banner {
+        padding: var(--space-3) var(--space-4);
+        padding-right: var(--space-8);
+    }
+
+    .emoji {
+        font-size: 28px;
+    }
+
+    .title {
+        font-size: var(--text-base);
+    }
+
+    .subtitle {
+        font-size: var(--text-xs);
+    }
+
+    .ctaButton {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-xs);
+    }
+}

@@ -1,0 +1,69 @@
+/* StickyCta - Fixed bottom CTA bar with glass effect (5th glass element) */
+
+.stickyBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-light);
+  
+  /* Hidden by default, slides up when visible */
+  transform: translateY(100%);
+  transition: transform 0.3s var(--ease-out);
+}
+
+/* Visible state - slides up */
+.stickyBar.visible {
+  transform: translateY(0);
+}
+
+/* CTA Button - gradient style */
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--max-width);
+  min-height: 48px;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-6);
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-500) 100%);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: white;
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out), 
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+/* Very small screens */
+@media (max-width: 374px) {
+  .stickyBar {
+    padding: var(--space-2) var(--space-4);
+    padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  }
+  
+  .ctaButton {
+    min-height: 44px;
+    font-size: var(--text-sm);
+  }
+}

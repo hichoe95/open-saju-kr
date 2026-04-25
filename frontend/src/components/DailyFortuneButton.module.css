@@ -1,0 +1,139 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(99, 102, 241, 0.08));
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.dateLabel {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 220px;
+    position: relative;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.free {
+    background: linear-gradient(135deg, var(--success), var(--success));
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.free:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--success), var(--success));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.freeBadge {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.paid {
+    background: linear-gradient(135deg, var(--warning), var(--warning));
+    color: white;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.paid:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--warning), var(--warning));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.costBadge {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.generating {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+}
+
+.completed {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.insufficient {
+    background: linear-gradient(135deg, var(--warning), var(--warning));
+    color: white;
+}
+
+.insufficient:hover {
+    background: linear-gradient(135deg, var(--warning), var(--warning));
+    transform: translateY(-1px);
+}
+
+.disabled {
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+}
+
+.error {
+    background: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-border);
+}
+
+.error:hover {
+    background: var(--error-border);
+}
+
+.refresh {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.refresh:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.balanceInfo {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+}

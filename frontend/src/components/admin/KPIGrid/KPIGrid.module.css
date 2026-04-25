@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+/* Default 3 columns */
+.cols3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* 4 columns */
+.cols4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 6 columns */
+.cols6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .cols4, .cols6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cols3, .cols4, .cols6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cols3, .cols4, .cols6 {
+    grid-template-columns: 1fr;
+  }
+}

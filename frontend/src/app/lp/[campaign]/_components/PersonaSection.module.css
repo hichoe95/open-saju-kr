@@ -1,0 +1,148 @@
+/* PersonaSection - Persona image with glass quote card */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: var(--space-16);
+}
+
+/* Headline */
+.headline {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-6);
+  text-align: center;
+}
+
+/* Persona image wrapper */
+.imageWrapper {
+  position: relative;
+  margin-bottom: var(--space-6);
+  animation: fadeInUp 0.6s var(--ease-out) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+/* Persona image - circular with border */
+.personaImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-500);
+  object-fit: cover;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+/* Body text */
+.body {
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-8);
+  max-width: 320px;
+  animation: fadeInUp 0.6s var(--ease-out) forwards;
+  animation-delay: 0.15s;
+  opacity: 0;
+}
+
+/* Quote card - glass effect (4th glass element) */
+.quoteCard {
+  position: relative;
+  padding: var(--space-6);
+  padding-top: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  max-width: 340px;
+  animation: fadeInUp 0.6s var(--ease-out) forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+/* Opening quote mark */
+.quoteMark {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-4);
+  font-size: 48px;
+  font-weight: var(--font-bold);
+  color: var(--primary-500);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+/* Quote text */
+.quote {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  font-style: italic;
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Closing quote mark */
+.quoteMarkEnd {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: 32px;
+  font-weight: var(--font-bold);
+  color: var(--primary-500);
+  opacity: 0.4;
+  line-height: 1;
+  text-align: right;
+}
+
+/* Very small screens */
+@media (max-width: 374px) {
+  .headline {
+    font-size: var(--text-xl);
+  }
+  
+  .personaImage {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .body {
+    font-size: var(--text-sm);
+  }
+  
+  .quoteCard {
+    padding: var(--space-5);
+    padding-top: var(--space-6);
+  }
+  
+  .quoteMark {
+    font-size: 36px;
+    top: var(--space-1);
+    left: var(--space-3);
+  }
+  
+  .quote {
+    font-size: var(--text-sm);
+  }
+  
+  .quoteMarkEnd {
+    font-size: 24px;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

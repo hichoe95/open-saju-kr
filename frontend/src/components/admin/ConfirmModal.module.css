@@ -1,0 +1,214 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: var(--space-4);
+    animation: fadeIn 0.2s ease;
+}
+
+.modal {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: scaleIn 0.2s ease;
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all 0.15s ease;
+}
+
+.closeButton:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+}
+
+.iconWrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-4);
+}
+
+.iconWrapper.danger {
+    background: var(--error-bg);
+    color: var(--error);
+}
+
+.iconWrapper.warning {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.iconWrapper.info {
+    background: var(--info-bg);
+    color: var(--info);
+}
+
+.title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.message {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    line-height: 1.5;
+    margin-bottom: var(--space-6);
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.cancelButton,
+.confirmButton {
+    flex: 1;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cancelButton {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+.cancelButton:hover {
+    background: var(--border-light);
+}
+
+.confirmButton {
+    border: none;
+    color: var(--text-inverse);
+}
+
+.confirmButton.danger {
+    background: var(--error);
+}
+
+.confirmButton.danger:hover {
+    background: var(--error);
+}
+
+.confirmButton.warning {
+    background: var(--warning);
+}
+
+.confirmButton.warning:hover {
+    background: var(--warning);
+}
+
+.confirmButton.info {
+    background: var(--info);
+}
+
+.confirmButton.info:hover {
+    background: var(--info);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: var(--space-5);
+    }
+    
+    .actions {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .modal {
+        background: var(--bg-card);
+    }
+    .title {
+        color: var(--text-primary);
+    }
+    .message {
+        color: var(--text-tertiary);
+    }
+    .cancelButton {
+        background: var(--bg-tertiary);
+        border-color: var(--text-secondary);
+        color: var(--text-primary);
+    }
+    .cancelButton:hover {
+        background: var(--text-secondary);
+    }
+    .closeButton:hover {
+        background: var(--bg-tertiary);
+    }
+}
+
+[data-theme="dark"] .modal {
+    background: var(--bg-card);
+}
+
+[data-theme="dark"] .title {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .message {
+    color: var(--text-tertiary);
+}
+
+[data-theme="dark"] .cancelButton {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .cancelButton:hover {
+    background: var(--text-secondary);
+}
+
+[data-theme="dark"] .closeButton:hover {
+    background: var(--bg-tertiary);
+}

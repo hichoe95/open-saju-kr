@@ -1,0 +1,70 @@
+/* GlossaryHighlight - 사주 용어 툴팁 스타일 */
+
+.term {
+    /* 용어 기본 스타일 */
+    color: var(--primary);
+    font-weight: 600;
+    cursor: help;
+    position: relative;
+    border-bottom: 1px dotted var(--primary);
+    transition: all 0.15s ease;
+    display: inline;
+}
+
+.term:hover {
+    background: var(--primary-light);
+    border-radius: 4px;
+    padding: 0 2px;
+    margin: 0 -2px;
+}
+
+/* React Portal 툴팁 스타일 */
+.portalTooltip {
+    background: var(--text-primary);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    width: max-content;
+    max-width: 280px;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    white-space: normal;
+    word-break: keep-all;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.portalArrow {
+    position: absolute;
+    top: 100%;
+    /* 툴팁 바로 아래 */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--text-primary);
+    width: 0;
+    height: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -90%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -100%);
+    }
+}
+
+/* 모바일 툴팁 크기 조정 */
+@media (max-width: 600px) {
+    .portalTooltip {
+        max-width: 240px;
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}

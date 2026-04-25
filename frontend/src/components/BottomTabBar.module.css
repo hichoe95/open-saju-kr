@@ -1,0 +1,142 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-light);
+    padding-bottom: env(safe-area-inset-bottom);
+    /* 아이폰 노치 대응 */
+}
+
+.tabBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 4px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tabItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: all 0.15s ease;
+    min-width: 44px;
+}
+
+.tabItem.active {
+    color: var(--primary);
+}
+
+.tabIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabLabel {
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* 중앙 도사 버튼 */
+.dosaButton {
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 8px;
+}
+
+.dosaCircle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+    transform: translateY(-8px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dosaCircle:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45);
+}
+
+.dosaImage {
+    border-radius: 50%;
+    border: 2px solid var(--bg-card);
+}
+
+/* 반응형 - 작은 화면에서 탭 줄이기 */
+@media (max-width: 400px) {
+    .tabLabel {
+        font-size: 9px;
+    }
+
+    .tabItem {
+        min-width: 40px;
+        padding: 6px 4px;
+    }
+
+    .dosaCircle {
+        width: 46px;
+        height: 46px;
+    }
+
+    .dosaImage {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+/* 극소 화면 (374px 이하) - iPhone SE/미니 */
+@media (max-width: 374px) {
+    .tabBar {
+        padding: 6px 2px;
+    }
+
+    .tabLabel {
+        font-size: 8px;
+    }
+
+    .tabItem {
+        min-width: 36px;
+        padding: 4px 2px;
+        gap: 1px;
+    }
+
+    .tabIcon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .dosaButton {
+        margin: 0 4px;
+    }
+
+    .dosaCircle {
+        width: 42px;
+        height: 42px;
+        transform: translateY(-6px);
+    }
+
+    .dosaImage {
+        width: 38px !important;
+        height: 38px !important;
+    }
+}

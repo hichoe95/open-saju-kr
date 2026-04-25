@@ -1,0 +1,487 @@
+/* TabContent - Toss-inspired Clean Design */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+/* 제목 */
+.title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.titleIcon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* 요약 배지 */
+.summary {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    padding: var(--space-4) var(--space-5);
+    background: var(--primary-light);
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-medium);
+}
+
+/* 마크다운 상세 분석 */
+.fullText {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-primary);
+    padding: 24px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+}
+
+.fullText h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 8px;
+}
+
+.fullText h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.fullText h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.fullText p {
+    margin-bottom: 16px;
+}
+
+.fullText ul,
+.fullText ol {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+
+.fullText li {
+    margin-bottom: 8px;
+}
+
+.fullText blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: var(--accent-light);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--accent);
+}
+
+.fullText strong {
+    color: var(--accent);
+    font-weight: 700;
+    background: linear-gradient(120deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+
+.fullText em {
+    color: var(--text-tertiary);
+    font-style: italic;
+    border-bottom: 1px dashed var(--text-tertiary);
+}
+
+.fullText code {
+    background: var(--bg-tertiary);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: 'SF Mono', Consolas, monospace;
+}
+
+/* 한자 스타일 */
+.fullText ruby {
+    ruby-position: over;
+}
+
+.fullText rt {
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+/* 섹션 그리드 */
+.sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.section {
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.section h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section li {
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    position: relative;
+    padding-left: 32px;
+}
+
+.section li::before {
+    content: '\2713';
+    position: absolute;
+    left: 12px;
+    font-weight: bold;
+}
+
+/* 타입별 스타일 */
+.positive {
+    background: var(--success-bg);
+    border: 1px solid var(--success);
+}
+
+.positive h4 {
+    color: var(--success);
+}
+
+.positive li {
+    color: var(--success);
+}
+
+.positive li::before {
+    color: var(--success);
+}
+
+.negative {
+    background: var(--error-bg);
+    border: 1px solid var(--error);
+}
+
+.negative h4 {
+    color: var(--error);
+}
+
+.negative li {
+    color: var(--error);
+}
+
+.negative li::before {
+    content: '\26A0';
+    color: var(--error);
+}
+
+.tip {
+    background: var(--warning-bg);
+    border: 1px solid var(--warning);
+}
+
+.tip h4 {
+    color: var(--warning);
+}
+
+.tip li {
+    color: var(--warning);
+}
+
+.tip li::before {
+    content: '\1F4A1';
+}
+
+/* 노트 */
+.note {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    padding: 12px 16px;
+    background: var(--bg-hover);
+    border-radius: 10px;
+    border: 1px dashed var(--border-default);
+}
+.secondaryCards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    .sections {
+        grid-template-columns: 1fr;
+    }
+
+    .fullText {
+        padding: 16px;
+    }
+}
+
+/* Timeline 스타일 추가 */
+.timeline {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* Glassmorphism subtle */
+    background: rgba(255, 255, 255, 0.7);
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.timelineTitle {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.timelineGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.timelineCard {
+    background: var(--bg-card);
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timelineCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.timelineHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.past .timelineHeader {
+    color: var(--text-tertiary);
+}
+
+.present .timelineHeader {
+    color: var(--accent);
+}
+
+.future .timelineHeader {
+    color: var(--success);
+}
+
+.past {
+    border-top: 3px solid var(--text-tertiary);
+}
+
+.present {
+    border-top: 3px solid var(--accent);
+    border-color: var(--accent-light);
+    background: var(--accent-light);
+}
+
+.future {
+    border-top: 3px solid var(--success);
+}
+
+.timelineText {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 500;
+    word-break: keep-all;
+}
+
+@media (max-width: 700px) {
+    .timelineGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .timeline {
+        padding: 16px;
+    }
+}
+
+/* 극소 화면 (374px 이하) - iPhone SE/미니 */
+@media (max-width: 374px) {
+    .container {
+        gap: var(--space-4);
+    }
+
+    .title {
+        font-size: var(--text-lg);
+        gap: var(--space-2);
+    }
+
+    .titleIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .summary {
+        font-size: var(--text-sm);
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .fullText {
+        padding: 14px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .fullText h2 {
+        font-size: 16px;
+        margin-top: 22px;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+    }
+
+    .fullText h3 {
+        font-size: 15px;
+        margin-top: 18px;
+        margin-bottom: 8px;
+    }
+
+    .fullText h4 {
+        font-size: 13px;
+        margin-top: 16px;
+        margin-bottom: 6px;
+    }
+
+    .fullText p {
+        margin-bottom: 14px;
+    }
+
+    .fullText ul,
+    .fullText ol {
+        margin-left: 18px;
+        margin-bottom: 14px;
+    }
+
+    .fullText li {
+        margin-bottom: 6px;
+    }
+
+    .fullText blockquote {
+        padding: 10px 16px;
+        margin: 16px 0;
+        font-size: 13px;
+    }
+
+    .fullText code {
+        font-size: 12px;
+        padding: 1px 6px;
+    }
+
+    .sections {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    .section h4 {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .section ul {
+        gap: 8px;
+    }
+
+    .section li {
+        font-size: 13px;
+        padding: 10px 14px;
+        padding-left: 28px;
+    }
+
+    .section li::before {
+        left: 10px;
+    }
+
+    .note {
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+
+    .timeline {
+        padding: 14px;
+        gap: 12px;
+        border-radius: 16px;
+    }
+
+    .timelineTitle {
+        font-size: 15px;
+        gap: 6px;
+    }
+
+    .timelineGrid {
+        gap: 10px;
+    }
+
+    .timelineCard {
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .timelineHeader {
+        font-size: 12px;
+    }
+
+    .timelineText {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}

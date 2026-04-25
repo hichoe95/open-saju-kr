@@ -1,0 +1,427 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.periodSelector {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--bg-tertiary);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+}
+
+.periodButton {
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.periodButton:hover {
+  color: var(--text-primary);
+}
+
+.periodActive {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.refreshButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refreshButton:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.autoRefreshToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.autoRefreshToggle:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.autoRefreshActive {
+  background: var(--success-bg);
+  border-color: var(--success);
+}
+
+.autoRefreshDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-default);
+  transition: background 0.2s ease;
+}
+
+.autoRefreshActive .autoRefreshDot {
+  background: var(--success);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tabs */
+.tabsContainer {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+}
+
+.tabButton {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.tabButtonActive {
+  background: var(--text-primary);
+  color: var(--bg-page);
+}
+
+.tabButtonInactive {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+
+.tabButtonInactive:hover {
+  background: var(--bg-hover);
+}
+
+/* Grid Layouts */
+.statsGrid {
+  margin-bottom: var(--space-6);
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+/* Sections */
+.section {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  margin-bottom: var(--space-5);
+}
+
+.twoColumnGrid .section {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.sectionTitle svg {
+  color: var(--text-secondary);
+}
+
+/* Charts */
+.chartContainer {
+  height: 300px;
+  width: 100%;
+}
+
+.pieChartContainer {
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  font-size: var(--text-sm);
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.tableHead {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  background: var(--bg-secondary);
+}
+
+.tableHeaderCell {
+  padding: var(--space-3) var(--space-6);
+  font-weight: var(--font-semibold);
+}
+
+.tableRow {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.2s ease;
+}
+
+.tableRow:hover {
+  background: var(--bg-hover);
+}
+
+.tableCell {
+  padding: var(--space-4) var(--space-6);
+  color: var(--text-secondary);
+}
+
+.tableCellMedium {
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.tableCellRight {
+  text-align: right;
+}
+
+.tableCellBold {
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+.emptyCell {
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+.cohortTable {
+  width: 100%;
+  font-size: var(--text-xs);
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.cohortTable th {
+  padding: var(--space-2);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+}
+
+.cohortTable td {
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.cohortTable td:first-child,
+.cohortTable td:nth-child(2) {
+  text-align: left;
+  font-weight: var(--font-medium);
+  background: transparent;
+}
+
+.llmGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
+
+.llmPanel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.llmPanelTitle {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.inlineErrorState {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  color: var(--error);
+  background: var(--bg-secondary);
+}
+
+/* States */
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.errorState svg {
+  color: var(--error);
+}
+
+.retryButton {
+  padding: var(--space-2) var(--space-4);
+  background: var(--primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.retryButton:hover {
+  background: var(--primary-hover);
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .headerActions {
+    justify-content: space-between;
+  }
+
+  .twoColumnGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .llmGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  .tabButtonActive {
+    background: var(--text-primary);
+    color: var(--bg-page);
+  }
+}

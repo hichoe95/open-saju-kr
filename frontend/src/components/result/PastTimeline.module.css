@@ -1,0 +1,348 @@
+/* PastTimeline Component Styles */
+
+.container {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.sectionHeader h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.countBadge {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--primary-50);
+    padding: 4px 10px;
+    border-radius: 100px;
+}
+
+/* Timeline Layout */
+.timeline {
+    position: relative;
+    padding-left: 24px;
+}
+
+.timelineLine {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-light);
+    border-radius: 1px;
+}
+
+/* Timeline Card */
+.timelineCard {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    margin-left: 24px;
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease;
+}
+
+.timelineCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateX(4px);
+}
+
+.strongCard {
+    border-left-width: 4px;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-hover) 100%);
+}
+
+.timelineDot {
+    position: absolute;
+    left: -28px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-card);
+    box-shadow: 0 0 0 2px currentColor;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.year {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.interactionBadge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+}
+
+.ganji {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 1px solid var(--bg-tertiary);
+}
+
+.severity {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.feedbackButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.feedbackButton:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-tertiary);
+    color: var(--text-secondary);
+}
+
+/* Skeleton Loading */
+.skeleton {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.skeletonHeader {
+    height: 24px;
+    width: 80px;
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+.skeletonGanji {
+    height: 16px;
+    width: 120px;
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+.skeletonDescription {
+    height: 60px;
+    width: 100%;
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+.skeletonFooter {
+    height: 28px;
+    width: 60px;
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 48px 24px;
+    background: linear-gradient(135deg, var(--success-bg) 0%, var(--success-bg) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--success-bg);
+    text-align: center;
+}
+
+.emptyState svg {
+    color: var(--success);
+}
+
+.emptyState p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--success);
+    margin: 0;
+}
+
+.emptyState span {
+    font-size: 14px;
+    color: var(--success);
+}
+
+/* Error State */
+.errorState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 48px 24px;
+    background: var(--error-bg);
+    border-radius: 16px;
+    border: 1px solid var(--error-bg);
+    text-align: center;
+}
+
+.errorState svg {
+    color: var(--error);
+}
+
+.errorState p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--error);
+    margin: 0;
+}
+
+.errorState span {
+    font-size: 13px;
+    color: var(--error);
+}
+
+/* Feedback Thanks */
+.feedbackThanks {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--info-bg) 0%, var(--info-bg) 100%);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--info);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .container {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .timeline {
+        padding-left: 16px;
+    }
+
+    .timelineLine {
+        left: 3px;
+    }
+
+    .timelineCard {
+        margin-left: 16px;
+        padding: 14px;
+        margin-bottom: 14px;
+    }
+
+    .timelineDot {
+        left: -22px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .year {
+        font-size: 18px;
+    }
+
+    .interactionBadge {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .cardFooter {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .emptyState,
+    .errorState {
+        padding: 36px 20px;
+    }
+}
+
+@media (max-width: 374px) {
+    .timelineCard {
+        padding: 12px;
+        margin-left: 12px;
+    }
+
+    .timelineDot {
+        left: -20px;
+    }
+
+    .cardHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .year {
+        font-size: 16px;
+    }
+}

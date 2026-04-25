@@ -1,0 +1,343 @@
+/* DailyGuideCard - 오늘의 한 줄 가이드 */
+
+/* 카드 컨테이너 */
+.card {
+    background: linear-gradient(135deg, var(--warning-bg) 0%, var(--warning-bg) 100%);
+    border: 1px solid var(--warning);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.5s ease-out;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
+}
+
+/* 입장 애니메이션 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 헤더 */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--warning);
+}
+
+.headerIcon {
+    color: var(--warning);
+    flex-shrink: 0;
+}
+
+.headerTitle {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--warning);
+    margin: 0;
+}
+
+/* 섹션 공통 스타일 */
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.sectionLabel {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 경고 섹션 */
+.warningSection {
+    background: var(--error-bg);
+    border: 1px solid var(--error-bg);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.warningIcon {
+    color: var(--error);
+    flex-shrink: 0;
+}
+
+.warningSection .sectionLabel {
+    color: var(--error);
+}
+
+.warningText {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--error);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 긍정 섹션 */
+.positiveSection {
+    background: var(--success-bg);
+    border: 1px solid var(--success-bg);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.positiveIcon {
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+.positiveSection .sectionLabel {
+    color: var(--success);
+}
+
+.positiveText {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--success);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.positiveCategory {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
+    color: var(--text-inverse);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 100px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* 시간 섹션 */
+.timeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.timeRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-light);
+}
+
+.timeLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+}
+
+.timeLabel svg {
+    color: var(--text-tertiary);
+}
+
+.avoidTimeValue {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--error);
+}
+
+.luckyTimeValue {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--success);
+}
+
+/* 상세 보기 버튼 */
+.expandButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px dashed var(--warning);
+    border-radius: 10px;
+    color: var(--warning);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.expandButton:hover {
+    background: rgba(251, 191, 36, 0.1);
+    border-style: solid;
+}
+
+.expandButton:active {
+    transform: scale(0.98);
+}
+
+/* 확장된 내용 */
+.expandedContent {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--warning);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.detailSection {
+    margin-bottom: 16px;
+}
+
+.detailSection:last-child {
+    margin-bottom: 0;
+}
+
+.detailTitle {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warning);
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detailText {
+    font-size: 14px;
+    color: var(--warning);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.detailItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.detailItem:last-child {
+    margin-bottom: 0;
+}
+
+.detailItemLabel {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--warning);
+    background: rgba(251, 191, 36, 0.2);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+    .card {
+        padding: 16px;
+        margin-bottom: 20px;
+        border-radius: 14px;
+    }
+
+    .header {
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+    }
+
+    .headerTitle {
+        font-size: 15px;
+    }
+
+    .warningSection,
+    .positiveSection {
+        padding: 12px;
+    }
+
+    .warningText,
+    .positiveText {
+        font-size: 13px;
+    }
+
+    .positiveCategory {
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-right: 6px;
+    }
+
+    .timeRow {
+        padding: 10px 12px;
+    }
+
+    .timeLabel {
+        font-size: 12px;
+    }
+
+    .avoidTimeValue,
+    .luckyTimeValue {
+        font-size: 14px;
+    }
+
+    .expandButton {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .detailTitle {
+        font-size: 12px;
+    }
+
+    .detailText {
+        font-size: 13px;
+    }
+
+    .detailItemLabel {
+        font-size: 11px;
+    }
+}
+
+/* 극소 화면 (374px 이하) */
+@media (max-width: 374px) {
+    .card {
+        padding: 14px;
+    }
+
+    .headerTitle {
+        font-size: 14px;
+    }
+
+    .warningText,
+    .positiveText {
+        font-size: 12px;
+    }
+
+    .timeRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
