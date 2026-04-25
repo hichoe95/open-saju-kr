@@ -126,7 +126,7 @@ Dockerfile             # Optional backend container image
 ### 1. 저장소 준비
 
 ```bash
-git clone git@github.com:hichoe95/open-saju-kr.git
+git clone git@github.com:<your-github-org>/open-saju-kr.git
 cd open-saju-kr
 ```
 
