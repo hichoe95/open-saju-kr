@@ -27,9 +27,17 @@
 
 </div>
 
-| 온보딩 | 서비스 소개 |
+| 사주 결과 | 로그인 |
 | :---: | :---: |
-| <img src="docs/screenshots/onboarding.png" alt="My Saju 온보딩 화면" width="380" /> | <img src="docs/screenshots/about.png" alt="My Saju 서비스 소개 화면" width="380" /> |
+| <img src="docs/screenshots/result.png" alt="My Saju 사주 결과 화면" width="380" /> | <img src="docs/screenshots/login.png" alt="My Saju 로그인 화면" width="380" /> |
+
+| 온보딩 | 마이페이지 설정 |
+| :---: | :---: |
+| <img src="docs/screenshots/onboarding.png" alt="My Saju 온보딩 화면" width="380" /> | <img src="docs/screenshots/settings.png" alt="My Saju 마이페이지 설정 화면" width="380" /> |
+
+| 서비스 소개 |
+| :---: |
+| <img src="docs/screenshots/about.png" alt="My Saju 서비스 소개 화면" width="760" /> |
 
 ---
 
