@@ -1,0 +1,113 @@
+# Python
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+.venv/
+env/
+.env.local
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.local.example
+!frontend/e2e/.env.example
+
+# Logs
+*.log
+logs/
+backend_log.txt
+
+# Build artifacts
+*.heapsnapshot
+
+# Temporary files
+*.tmp
+*.temp
+
+# MCP config (local)
+.mcp.json
+.mcp.*.json
+
+# Test artifacts
+latest_response.json
+response.json
+debug_response.json
+*_response.json
+frontend/output/
+frontend/output/playwright/
+frontend/e2e/.auth/
+
+# Development scripts (local)
+remove_bg*.py
+saju_dosa_mascot*.png
+
+# Icon backup/intermediate files
+*_raw.png
+*_backup.png
+*_with_bg.png
+*_pre_u2net.png
+*_cutout.png
+
+# Sisyphus agent internal files
+.sisyphus/
+
+# AI agent config directories
+.agent/
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.opencode/
+
+# AI agent guides
+AGENTS.md
+**/AGENTS.md
+
+# Root level npm (opencode dependency)
+/package.json
+/package-lock.json
