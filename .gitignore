@@ -92,7 +92,7 @@ saju_dosa_mascot*.png
 *_pre_u2net.png
 *_cutout.png
 
-# Sisyphus agent internal files
+# Agent internal files
 .sisyphus/
 
 # AI agent config directories
